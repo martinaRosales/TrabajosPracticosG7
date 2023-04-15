@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <!-- Con este no me anda bs <link rel="stylesheet" href="/Public/bootstrap-5.0.2-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="./Public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <title>Document</title>
 </head>
 
@@ -35,7 +36,7 @@
             <div class="row mb-3">
                 <label for="fecha-nacimiento" class="col-sm-4 col-form-label">Fecha de nacimiento</label>
                 <div class="col-sm-8">
-                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
+                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento"  min="1960-01-01">
                 </div>
             </div>
             <div class="row mb-3">
@@ -89,9 +90,9 @@
                 </div>
             </div>
             <div class="row mb-3">
-                <label for="clasificacion" class="col-sm-4 col-form-label">Clasificación general de nacimiento</label>
+                <label for="clasificacion" class="col-sm-4 col-form-label">Clasificación general del ranking nacional</label>
                 <div class="col-sm-8">
-                    <input type="number" class="form-control" id="clasificacion" name="clasificacion" min="1" max="100" placeholder="Ingrese su posición en el ranking nacional">
+                    <input type="text" class="form-control" id="clasificacion" name="clasificacion" placeholder="Ingrese su posición en el ranking nacional">
                 </div>
             </div>
             <div class="row mb-3">

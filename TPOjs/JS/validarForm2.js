@@ -8,7 +8,7 @@ const messages = {
   fechaNacimiento: "Ingrese su fecha de nacimiento",
   paisOrigen: "Seleccione su país de origen",
   graduacion: "Seleccione su grado de educación",
-  clasificacion: "Seleccione su clasificación",
+  clasificacion: "Seleccione su clasificación (Enteros o Decimales unicamente ente 1 y 900)",
   email: "Ingrese un correo electrónico válido",
   genero: "Seleccione su género",
 };
@@ -44,6 +44,33 @@ function validarEmail(email) {
   return true;
 }
 
+// La edad del competidor debe ser de 6 años o más.
+function validarEdad(fecha){
+  const fechaNac = new Date(fecha); //se crea la clase de fecha con el valor pasado por parametro 
+  const anioNac = fechaNac.getFullYear(); //se obtiene el año de la fecha pasada por input 
+  const fechaActual = new Date(); //se obtiene la clase date para saber el año actual
+  const anioActual = fechaActual.getFullYear(); // devuelve el año actual  
+  const edad = anioActual - anioNac;   
+  if (edad < 6) {
+    envio.textContent = messages.fechaNacimiento;
+    envio.style.display = "block";
+    envio.classList.add("is-invalid");
+    return false;
+  } 
+  return true; 
+}
+
+// Validar que el ranking sea un número entre 0 y 900 pudiendo ser decimal de una posición
+function validarClasificacion(clasificacion) {
+  if (isNaN(clasificacion) || clasificacion < 1 || clasificacion > 900) {
+    envio.textContent = messages.clasificacion;
+    envio.style.display = "block";
+    envio.classList.add("is-invalid");
+    return false;
+  }
+  return true; 
+}
+
 function validarFormulario() {
   const legajo = document.getElementById("legajo").value;
   const apellido = document.getElementById("apellido").value;
@@ -69,9 +96,15 @@ function validarFormulario() {
     return false;
   }
 
-  if (!validarLegajo(legajo) || !validarEmail(email)) {
+  if (
+    !validarLegajo(legajo) || 
+    !validarEmail(email) ||
+    !validarEdad(fechaNacimiento) ||
+    !validarClasificacion(clasificacion)
+    ) {
     return false;
   }
+
 
   envio.textContent= "";
   envio.style.display = "none";
