@@ -10,4 +10,20 @@ class Competidor{
         this.email = objeto.email;
         this.genero = objeto.genero;
     }
+
+    //se retorna un obj de la clase competidor con todos sus datos 
+    perfil(){
+        let objCompetidor = {
+            legajo: this.legajo,
+            apellido: this.apellido,
+            nombre: this.nombre,
+            fechaNac: this.fechaNac,
+            pais: this.pais,
+            graduacion: this.graduacion,
+            clasificacionGenNac: this.clasificacionGenNac,
+            email: this.email,
+            genero: this.genero,
+        }
+        return objCompetidor
+    }
 }
