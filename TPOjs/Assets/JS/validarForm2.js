@@ -5,10 +5,10 @@ const messages = {
   legajo: "Ingrese un legajo válido (3 letras (MAYUS) seguidas de 7 números)",
   apellido: "El apellido ingresado es demasiado largo",
   nombre: "El nombre ingresado es demasiado largo",
-  fechaNacimiento: "Ingrese su fecha de nacimiento",
+  fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
   paisOrigen: "El país ingresado no está en los países registrados", 
   graduacion: "Seleccione su grado de educación",
-  clasificacion: "Seleccione su clasificación (Enteros o Decimales unicamente ente 1 y 900)",
+  clasificacion: "Ingrese un dato valido (Enteros o Decimales unicamente ente 1 y 900), sin espacio en blanco y con un punto en caso de ser decimal",
   email: "Ingrese un correo electrónico válido",
   genero: "Seleccione su género",
   du: "Ingrese los 8 dígitos de su DNI"
@@ -83,7 +83,7 @@ function validarPais(pais){
 // La edad del competidor debe ser de 6 años o más.
 function validarEdad(fecha){
   const fechaNac = new Date(fecha); //se crea la clase de fecha con el valor pasado por parametro 
-  const anioNac = fechaNac.getFullYear(); //se obtiene el año de la fecha pasada por input 
+  const anioNac = fechaNac.getFullYear(); //se obtiene el año de la fecha pasada por parametro
   const fechaActual = new Date(); //se obtiene la clase date para saber el año actual
   const anioActual = fechaActual.getFullYear(); // devuelve el año actual  
   const edad = anioActual - anioNac;   
@@ -96,16 +96,15 @@ function validarEdad(fecha){
   return true; 
 }
 
+
 // Validar que el ranking sea un número entre 0 y 900 pudiendo ser decimal de una posición
 function validarClasificacion(clasificacion) {
-
-  if (isNaN(clasificacion) || clasificacion < 1 || clasificacion > 900) {
+  const regexClas = /^\S+$/ //expresion que no acepta espacion en blanco 
+  if (isNaN(clasificacion) || clasificacion < 1 || clasificacion > 900 || !regexClas.test(clasificacion)) {
     envio.textContent = messages.clasificacion;
     envio.style.display = "block";
     envio.classList.add("is-invalid");
     return false;
-  } else {
-
   }
   return true; 
 }
