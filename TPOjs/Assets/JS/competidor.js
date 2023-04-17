@@ -12,27 +12,71 @@ class Competidor{
         this.genero = objeto.genero;
     }
 
-    
-    /*perfil(){
-        let objCompetidor = {
-            legajo: this.legajo,
-            apellido: this.apellido,
-            nombre: this.nombre,
-            du : this.du,
-            fechaNac: this.fechaNac,
-            pais: this.pais,
-            graduacion: this.graduacion,
-            clasificacionGenNac: this.clasificacionGenNac,
-            email: this.email,
-            genero: this.genero,
-        }
-        return objCompetidor
+    getLegajo(){
+      return this.legajo;
     }
-    */
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
 
-    darPerfil(dni){
-      if (dni == this.du) {
-        tarjeta = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="competidor">'+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    getLegajo(){
+      return this.legajo;
+    }
+    setLegajo(legajo){
+      this.legajo = legajo;
+    }
+
+    darPerfil(){
+        let competidorInfo = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="competidor">'+
         '<div class="card-body">'+
           '<h5 class="card-title" id="nombreCompetidor">'+this.nombre+' '+ this.apellido +'</h5>'+
           '<p class="card-text">'+
@@ -47,9 +91,8 @@ class Competidor{
           '</p>'+
         '</div>'+
       '</div>';
-      tarjetas = document.getElementById("tarjetas");
-      tarjetas.innerHTML = tarjeta;
-        }
+      return competidorInfo;
+        
     } 
 }
 

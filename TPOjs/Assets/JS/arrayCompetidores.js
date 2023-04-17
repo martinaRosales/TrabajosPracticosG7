@@ -35,17 +35,21 @@
 //     genero: "femenino"
 // })
 
-array= [
-  { legajo: "ABS1234567",
-  apellido: "Perez",
-  nombre: "Roberto",
-  du: "32556987",
-  fechaNac: "1990-12-02",
-  pais: "Argentina",
-  graduacion: "1er DAN",
-  clasificacionGenNac: 200,
-  email: "perez.roberto@gmail.com",
-  genero: "masculino"},
+let arrayCompetidores = new Array() 
+arrayCompetidores[0] =   
+{
+    legajo: "ABS1234567",
+    apellido: "Perez",
+    nombre: "Roberto",
+    du: "32556987",
+    fechaNac: "1990-12-02",
+    pais: "Argentina",
+    graduacion: "1er DAN",
+    clasificacionGenNac: 200,
+    email: "perez.roberto@gmail.com",
+    genero: "masculino"
+  };
+arrayCompetidores[1] =  
   {
     legajo: "AFG5566894",
     apellido: "Ramirez",
@@ -57,9 +61,10 @@ array= [
     clasificacionGenNac: 825,
     email: "noeliaramirez22@gmail.com",
     genero: "femenino"
-},
-{
-  legajo: "ADF2356941",
+  };
+arrayCompetidores[2] =   
+  {
+    legajo: "ADF2356941",
     apellido: "Gonzales",
     nombre: "Mariana",
     du: "46558712",
@@ -69,22 +74,46 @@ array= [
     clasificacionGenNac: 315,
     email: "marii.gon@gmail.com",
     genero: "femenino"
-}
-]
+  };
 
+/*
+tarjetas = document.getElementById("tarjetas");
 arrayCompetidores.forEach(competidor => {
-  new Competidor(competidor)
-});
+  let classCompetidor = new Competidor(competidor); 
+  let tarjeta = classCompetidor.darPerfil();  
+}); */
 
 //let arrayCompetidores = [competidor1, competidor2, competidor3];
-localStorage.setItem('competidores', arrayCompetidores);
+localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
 
-window.addEventListener('load', function() {
-    //Se cargan las tarjetas con los competidores
-    mostrarCompetidores()
+window.addEventListener('load', function () {
+  
+  let array = localStorage.getItem('competidores');
+
+  competidores = JSON.parse(array);
+  console.log(competidores)
+  darCompetidores(competidores)
+});
+
+window.addEventListener('change', function () {
+  darCompetidores()
+});
+
+
+function darCompetidores(competidores) {
+  tarjetas = document.getElementById("tarjetas");
+  let arrayTarjetas = new Array();
+  competidores.forEach(competidor => {
+    //console.log(competidor)
+    let classCompetidor = new Competidor(competidor);
+    let tarjeta = classCompetidor.darPerfil();
+    arrayTarjetas.push(tarjeta); 
   });
-
+  tarjetas.innerHTML = arrayTarjetas;
+  
+}
 //mostrar competidores
+/*
 function mostrarCompetidores(){
     tarjetas = document.getElementById("tarjetas");
     tarjetaS = Array();
@@ -108,7 +137,7 @@ function mostrarCompetidores(){
         tarjetaS.push(tarjeta);
     });
     tarjetas.innerHTML = tarjetaS;
-}
+}*/
 
 
 
