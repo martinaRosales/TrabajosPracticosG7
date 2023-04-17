@@ -65,7 +65,11 @@ function mostrarCompetidores(){
           '</p>'+
         '</div>'+
       '</div>';
+        arrayCompetidores.forEach()
         tarjetaS.push(tarjeta);
     });
     tarjetas.innerHTML = tarjetaS;
 }
+
+
+

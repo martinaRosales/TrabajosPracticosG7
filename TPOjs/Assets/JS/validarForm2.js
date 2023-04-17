@@ -16,7 +16,6 @@ const messages = {
 
 
 
-
 //json de paises permitidos
 const paisesPermitidos = [
   {"paisPermitido": "rusia"},
