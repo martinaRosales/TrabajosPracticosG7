@@ -1,3 +1,4 @@
+//se crea el array competidores
 let arrayCompetidores = new Array()
 arrayCompetidores[0] =
 {
@@ -40,34 +41,26 @@ arrayCompetidores[2] =
 };
 
 
-
+//Se guarda el array en un localStorage
 localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
 
 window.addEventListener('load', function () {
-
-  let array = localStorage.getItem('competidores');
-  competidores = JSON.parse(array);
-  //console.log(competidores)
-  darCompetidores(competidores)
+  //Se llama a la funcion que imprime los datos de los competidores en pantalla
+  darCompetidores(arrayCompetidores)
 });
 
-// window.addEventListener('change', function () {
-//   let array = localStorage.getItem('competidores');
-//   competidores = JSON.parse(array);
-//   console.log(competidores, 'change')
-//   darCompetidores(competidores)
-// });
 
-
+//Se crea una función que crea intancias de la clase competidor llama al método que retorna una tarjeta html en string
 function darCompetidores(competidores) {
   tarjetas = document.getElementById("tarjetas");
   let arrayTarjetas = new Array();
   competidores.forEach(competidor => {
-    //console.log(competidor)
+    //se crea una instancia de la clase competidor
     let classCompetidor = new Competidor(competidor);
     let tarjeta = classCompetidor.darPerfil();
     arrayTarjetas.push(tarjeta);
   });
+  //se imprime en pantalla el array creado con los datos
   tarjetas.innerHTML = arrayTarjetas;
 
 }

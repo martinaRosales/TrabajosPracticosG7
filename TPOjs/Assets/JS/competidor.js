@@ -12,69 +12,7 @@ class Competidor{
         this.genero = objeto.genero;
     }
 
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
-    getLegajo(){
-      return this.legajo;
-    }
-    setLegajo(legajo){
-      this.legajo = legajo;
-    }
-
+    //Método que genera una tarjeta HTML en un string y la retorna para imprimirla en pantalla
     darPerfil(){
         let competidorInfo = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="competidor">'+
         '<div class="card-body">'+
@@ -91,8 +29,7 @@ class Competidor{
           '</p>'+
         '</div>'+
       '</div>';
-      return competidorInfo;
-        
+      return competidorInfo;     
     } 
 }
 

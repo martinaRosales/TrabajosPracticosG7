@@ -1,6 +1,7 @@
 const form = document.getElementById("formulario");
 const envio = document.getElementById("envio");
 
+//Mensajes que se imprimen en pantalla en caso de error
 const messages = {
   legajo: "Ingrese un legajo válido (3 letras (MAYUS) seguidas de 7 números)",
   apellido: "El apellido ingresado es demasiado largo",
@@ -35,7 +36,7 @@ const paisesPermitidos = [
   { "paisPermitido": "uruguay" }
 ]
 
-
+//funcion que comprueb que el campo no esté vacío
 function validarCampo(valor, campo) {
   if (valor.trim() === "") {
     envio.textContent = `El campo ${campo} es requerido`;
@@ -45,6 +46,7 @@ function validarCampo(valor, campo) {
   return true;
 }
 
+//función que comprueba que el legajo tenga 3 letras y 7 números, respectivamente
 function validarLegajo(legajo) {
   const regexLegajo = /^[A-Z]{3}\d{7}$/;
   if (!regexLegajo.test(legajo)) {
@@ -56,6 +58,7 @@ function validarLegajo(legajo) {
   return true;
 }
 
+//función que comprueba que el mail tenga un @ entre strings
 function validarEmail(email) {
   const regexEmail = /^\S+@\S+\.\S+$/;
   if (!regexEmail.test(email)) {
@@ -67,6 +70,7 @@ function validarEmail(email) {
   return true;
 }
 
+//funcion que compara el país ingresado con un json de países permitidos
 function validarPais(pais) {
   paisValidated = false;
   paisesPermitidos.forEach(jsonPais => {
@@ -111,7 +115,7 @@ function validarClasificacion(clasificacion) {
   return true;
 }
 
-
+//Validar que el apellido tenga menos de 100 caracteres
 function validarApellido(string) {
   let apellidoValidated = true;
   if (string.length > 100) {
@@ -123,6 +127,7 @@ function validarApellido(string) {
   return apellidoValidated
 }
 
+//Validar que el nombre tenga menos de 100 caracteres
 function validarNombre(string) {
   let nombreValidated = true;
   if (string.length > 100) {
@@ -134,7 +139,7 @@ function validarNombre(string) {
   return nombreValidated
 }
 
-//FALTA AGREGARLO A VALIDAR FORMULARIO (no tiene input)
+//Validar que el du sea un número y tenga 8 dígitos
 function validarDu(du) {
   duValidated = true;
   if (isNaN(du) || du.length != 8) {
@@ -146,8 +151,9 @@ function validarDu(du) {
   return duValidated
 }
 
-
+//Funcion que comprueba que todos los campos estén completos y con los datos correctos
 function validarFormulario() {
+  //Se recuperan los datos del formulario
   const legajo = document.getElementById("legajo").value;
   const apellido = document.getElementById("apellido").value;
   const nombre = document.getElementById("nombre").value;
@@ -159,6 +165,7 @@ function validarFormulario() {
   const email = document.getElementById("email").value;
   const genero = document.querySelector('input[name="genero"]:checked').value;
   if (
+    //Se comprueba que los campos no estén vacíos
     !validarCampo(legajo, "legajo") ||
     !validarCampo(apellido, "apellido") ||
     !validarCampo(nombre, "nombre") ||
@@ -170,11 +177,11 @@ function validarFormulario() {
     !validarCampo(email, "correo electrónico") ||
     !genero
   ) {
-
     return false;
   }
 
   if (
+    //Se comprueba que los datos sean correctos
     !validarLegajo(legajo) ||
     !validarEmail(email) ||
     !validarEdad(fechaNacimiento) ||
@@ -191,11 +198,16 @@ function validarFormulario() {
   envio.textContent = "";
   envio.style.display = "none";
   envio.classList.remove("is-invalid");
+
+  //se crea un objeto conpetidor con los datos del formulario
   newCompetidor = { legajo: legajo, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+  
+  //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
   let array = localStorage.getItem('competidores');
   competidores = JSON.parse(array);
   competidores.push(newCompetidor);
   localStorage.setItem('competidores', JSON.stringify(competidores));
+
   return true;
 }
 
@@ -204,7 +216,7 @@ form.addEventListener("submit", (e) => {
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
 
-   
+   //se llama a la funcion que imprime competidores para actualizar la lista
     darCompetidores(competidores)
 
 
