@@ -1,6 +1,6 @@
 class Competidor{
     constructor(objeto){
-        this.legajo = objeto.legajo;
+        this.gal = objeto.gal;
         this.apellido = objeto.apellido;
         this.nombre = objeto.nombre;
         this.du = objeto.du;
@@ -18,7 +18,7 @@ class Competidor{
         '<div class="card-body">'+
           '<h5 class="card-title" id="nombreCompetidor">'+this.nombre+' '+ this.apellido +'</h5>'+
           '<p class="card-text">'+
-            '<b>Legajo: </b>'+this.legajo+'<br>'+
+            '<b>GAL: </b>'+this.gal+'<br>'+
             '<b>DU: </b> '+this.du+'<br>'+
             '<b>Fecha de Nacimiento: </b> '+ this.fechaNac+'<br>'+
             '<b>Pais de origen: </b> '+ this.pais+'<br>'+

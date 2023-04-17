@@ -2,7 +2,7 @@
 let arrayCompetidores = new Array()
 arrayCompetidores[0] =
 {
-  legajo: "ABS1234567",
+  gal: "ABS1234567",
   apellido: "Perez",
   nombre: "Roberto",
   du: "32556987",
@@ -15,7 +15,7 @@ arrayCompetidores[0] =
 };
 arrayCompetidores[1] =
 {
-  legajo: "AFG5566894",
+  gal: "AFG5566894",
   apellido: "Ramirez",
   nombre: "Noelia",
   du: "16558974",
@@ -28,7 +28,7 @@ arrayCompetidores[1] =
 };
 arrayCompetidores[2] =
 {
-  legajo: "ADF2356941",
+  gal: "ADF2356941",
   apellido: "Gonzales",
   nombre: "Mariana",
   du: "46558712",

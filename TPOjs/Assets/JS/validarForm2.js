@@ -3,7 +3,7 @@ const envio = document.getElementById("envio");
 
 //Mensajes que se imprimen en pantalla en caso de error
 const messages = {
-  legajo: "Ingrese un legajo válido (3 letras (MAYUS) seguidas de 7 números)",
+  gal: "Ingrese un gal válido (3 letras (MAYUS) seguidas de 7 números)",
   apellido: "El apellido ingresado es demasiado largo",
   nombre: "El nombre ingresado es demasiado largo",
   fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
@@ -46,11 +46,11 @@ function validarCampo(valor, campo) {
   return true;
 }
 
-//función que comprueba que el legajo tenga 3 letras y 7 números, respectivamente
-function validarLegajo(legajo) {
-  const regexLegajo = /^[A-Z]{3}\d{7}$/;
-  if (!regexLegajo.test(legajo)) {
-    envio.textContent = messages.legajo;
+//función que comprueba que el Gal tenga 3 letras y 7 números, respectivamente
+function validarGal(gal) {
+  const regexGal = /^[A-Z]{3}\d{7}$/;
+  if (!regexGal.test(gal)) {
+    envio.textContent = messages.gal;
     envio.style.display = "block";
     envio.classList.add("is-invalid");
     return false;
@@ -102,7 +102,6 @@ function validarEdad(fecha) {
   return true;
 }
 
-
 // Validar que el ranking sea un número entre 0 y 900 pudiendo ser decimal de una posición
 function validarClasificacion(clasificacion) {
   const regexClas = /^\S+$/ //expresion que no acepta espacion en blanco 
@@ -151,10 +150,22 @@ function validarDu(du) {
   return duValidated
 }
 
+//Validar que el genero no este vacio 
+function validarGenero(genero) {
+  generoValidated = true;
+  if (!genero) {
+    envio.textContent = messages.genero;
+    envio.style.display = 'block';
+    envio.classList.add("is-invalid");
+    duValidated = false
+  }
+  return duValidated
+}
+
 //Funcion que comprueba que todos los campos estén completos y con los datos correctos
 function validarFormulario() {
   //Se recuperan los datos del formulario
-  const legajo = document.getElementById("legajo").value;
+  const gal = document.getElementById("gal").value;
   const apellido = document.getElementById("apellido").value;
   const nombre = document.getElementById("nombre").value;
   const du = document.getElementById("du").value;
@@ -165,32 +176,19 @@ function validarFormulario() {
   const email = document.getElementById("email").value;
   const generoInput = document.querySelector('input[name="genero"]:checked');
   const genero = generoInput ? generoInput.value : null;
-  if (
-    //Se comprueba que los campos no estén vacíos
-    !validarCampo(legajo, "legajo") ||
-    !validarCampo(apellido, "apellido") ||
-    !validarCampo(nombre, "nombre") ||
-    !validarCampo(du, "du") ||
-    !validarCampo(fechaNacimiento, "fecha de nacimiento") ||
-    !validarCampo(paisOrigen, "país de origen") ||
-    !validarCampo(graduacion, "grado de educación") ||
-    !validarCampo(clasificacion, "clasificación") ||
-    !validarCampo(email, "correo electrónico") ||
-    !validarCampo(genero, "genero")
-  ) {
-    return false;
-  }
 
   if (
-    //Se comprueba que los datos sean correctos
-    !validarLegajo(legajo) ||
-    !validarEmail(email) ||
-    !validarEdad(fechaNacimiento) ||
-    !validarClasificacion(clasificacion) ||
-    !validarApellido(apellido) ||
-    !validarNombre(nombre) ||
-    !validarPais(paisOrigen) ||
-    !validarDu(du)
+    //Se comprueba que los campos no estén vacíos y sean correctos 
+    (!validarCampo(gal, "GAL") || !validarGal(gal)) ||
+    (!validarCampo(apellido, "apellido") || !validarApellido(apellido)) ||
+    (!validarCampo(nombre, "nombre") || !validarNombre(nombre))||
+    (!validarCampo(du, "du") || !validarDu(du)) || 
+    (!validarCampo(fechaNacimiento, "fecha de nacimiento") || !validarEdad(fechaNacimiento)) ||
+    (!validarCampo(paisOrigen, "país de origen") || !validarPais(paisOrigen)) ||
+    (!validarCampo(graduacion, "grado de educación")) ||
+    (!validarCampo(clasificacion, "clasificación") ||  !validarClasificacion(clasificacion)) ||
+    (!validarCampo(email, "correo electrónico") ||  !validarEmail(email)) || 
+    (!validarGenero(genero))
   ) {
     return false;
   }
@@ -201,7 +199,7 @@ function validarFormulario() {
   envio.classList.remove("is-invalid");
 
   //se crea un objeto conpetidor con los datos del formulario
-  newCompetidor = { legajo: legajo, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+  newCompetidor = { gal: gal, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
 
   //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
   let array = localStorage.getItem('competidores');
