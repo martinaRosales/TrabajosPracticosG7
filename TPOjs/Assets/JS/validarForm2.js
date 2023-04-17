@@ -6,7 +6,7 @@ const messages = {
   apellido: "El apellido ingresado es demasiado largo",
   nombre: "El nombre ingresado es demasiado largo",
   fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
-  paisOrigen: "El país ingresado no está en los países registrados", 
+  paisOrigen: "El país ingresado no está en los países registrados",
   graduacion: "Seleccione su grado de educación",
   clasificacion: "Ingrese un dato valido (Enteros o Decimales unicamente ente 1 y 900), sin espacio en blanco y con un punto en caso de ser decimal",
   email: "Ingrese un correo electrónico válido",
@@ -18,21 +18,21 @@ const messages = {
 
 //json de paises permitidos
 const paisesPermitidos = [
-  {"paisPermitido": "rusia"},
-  {"paisPermitido": "ucrania"},
-  {"paisPermitido": "estados unidos"},
-  {"paisPermitido": "canadá"},
-  {"paisPermitido": "perú"},
-  {"paisPermitido": "chile"},
-  {"paisPermitido": "argentina"},
-  {"paisPermitido": "méxico"},
-  {"paisPermitido": "brasil"},
-  {"paisPermitido": "bolivia"},
-  {"paisPermitido": "ecuador"},
-  {"paisPermitido": "venezuela"},
-  {"paisPermitido": "colombia"},
-  {"paisPermitido": "paraguay"},
-  {"paisPermitido": "uruguay"}
+  { "paisPermitido": "rusia" },
+  { "paisPermitido": "ucrania" },
+  { "paisPermitido": "estados unidos" },
+  { "paisPermitido": "canadá" },
+  { "paisPermitido": "perú" },
+  { "paisPermitido": "chile" },
+  { "paisPermitido": "argentina" },
+  { "paisPermitido": "méxico" },
+  { "paisPermitido": "brasil" },
+  { "paisPermitido": "bolivia" },
+  { "paisPermitido": "ecuador" },
+  { "paisPermitido": "venezuela" },
+  { "paisPermitido": "colombia" },
+  { "paisPermitido": "paraguay" },
+  { "paisPermitido": "uruguay" }
 ]
 
 
@@ -67,14 +67,14 @@ function validarEmail(email) {
   return true;
 }
 
-function validarPais(pais){
+function validarPais(pais) {
   paisValidated = false;
   paisesPermitidos.forEach(jsonPais => {
-    if (jsonPais.paisPermitido === pais.toLowerCase()){
+    if (jsonPais.paisPermitido === pais.toLowerCase()) {
       paisValidated = true;
     }
   });
-  if (!paisValidated){
+  if (!paisValidated) {
     envio.textContent = messages.paisOrigen;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
@@ -83,19 +83,19 @@ function validarPais(pais){
 }
 
 // La edad del competidor debe ser de 6 años o más.
-function validarEdad(fecha){
+function validarEdad(fecha) {
   const fechaNac = new Date(fecha); //se crea la clase de fecha con el valor pasado por parametro 
   const anioNac = fechaNac.getFullYear(); //se obtiene el año de la fecha pasada por parametro
   const fechaActual = new Date(); //se obtiene la clase date para saber el año actual
   const anioActual = fechaActual.getFullYear(); // devuelve el año actual  
-  const edad = anioActual - anioNac;   
+  const edad = anioActual - anioNac;
   if (edad < 6) {
     envio.textContent = messages.fechaNacimiento;
     envio.style.display = "block";
     envio.classList.add("is-invalid");
     return false;
-  } 
-  return true; 
+  }
+  return true;
 }
 
 
@@ -108,13 +108,13 @@ function validarClasificacion(clasificacion) {
     envio.classList.add("is-invalid");
     return false;
   }
-  return true; 
+  return true;
 }
 
 
-function validarApellido (string){
+function validarApellido(string) {
   let apellidoValidated = true;
-  if (string.length>100){
+  if (string.length > 100) {
     envio.textContent = messages.apellido;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
@@ -123,9 +123,9 @@ function validarApellido (string){
   return apellidoValidated
 }
 
-function validarNombre(string){
+function validarNombre(string) {
   let nombreValidated = true;
-  if (string.length>100){
+  if (string.length > 100) {
     envio.textContent = messages.nombre;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
@@ -135,15 +135,15 @@ function validarNombre(string){
 }
 
 //FALTA AGREGARLO A VALIDAR FORMULARIO (no tiene input)
-function validarDu(du){
+function validarDu(du) {
   duValidated = true;
-  if (isNaN(du) || du.length != 8){
+  if (isNaN(du) || du.length != 8) {
     envio.textContent = messages.du;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     duValidated = false
   }
-return duValidated
+  return duValidated
 }
 
 
@@ -157,7 +157,7 @@ function validarFormulario() {
   const graduacion = document.getElementById("graduacion").value;
   const clasificacion = document.getElementById("clasificacion").value;
   const email = document.getElementById("email").value;
-  const genero = document.querySelector('input[name="genero"]:checked');
+  const genero = document.querySelector('input[name="genero"]:checked').value;
   if (
     !validarCampo(legajo, "legajo") ||
     !validarCampo(apellido, "apellido") ||
@@ -175,36 +175,39 @@ function validarFormulario() {
   }
 
   if (
-    !validarLegajo(legajo) || 
+    !validarLegajo(legajo) ||
     !validarEmail(email) ||
     !validarEdad(fechaNacimiento) ||
     !validarClasificacion(clasificacion) ||
     !validarApellido(apellido) ||
-    !validarNombre(nombre)||
-    !validarPais(paisOrigen)||
+    !validarNombre(nombre) ||
+    !validarPais(paisOrigen) ||
     !validarDu(du)
-    ) {
+  ) {
     return false;
   }
 
 
-  envio.textContent= "";
+  envio.textContent = "";
   envio.style.display = "none";
   envio.classList.remove("is-invalid");
-  // newCompetidor = {legajo: legajo,apellido: apellido,nombre: nombre,du: du,fechaNac: fechaNacimiento,pais: paisOrigen,graduacion: graduacion,clasificacionGenNac: clasificacion,email: email,genero: genero};
-  // arrayCompetidores = localStorage.getItem('competidores');
-  // console.log(arrayCompetidores)
-  // arrayCompetidores.push(new Competidor(newCompetidor));
+  newCompetidor = { legajo: legajo, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+  let array = localStorage.getItem('competidores');
+  competidores = JSON.parse(array);
+  competidores.push(newCompetidor);
+  localStorage.setItem('competidores', JSON.stringify(competidores));
   return true;
-  }
-  
-  form.addEventListener("submit", (e) => {
+}
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validarFormulario()) {
-  alert("Formulario enviado exitosamente");
+    alert("Formulario enviado exitosamente");
 
- 
+   
+    darCompetidores(competidores)
 
-  form.reset();
+
+    form.reset();
   }
-  });
+});
