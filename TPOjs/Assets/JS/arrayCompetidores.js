@@ -3,7 +3,7 @@ let competidor1 = new Competidor({
     apellido: "Perez",
     nombre: "Roberto",
     du: "32556987",
-    fechaNac: "02/12/1990",
+    fechaNac: "1990-12-02",
     pais: "Argentina",
     graduacion: "1er DAN",
     clasificacionGenNac: 200,
@@ -15,7 +15,7 @@ let competidor2 = new Competidor({
     apellido: "Ramirez",
     nombre: "Noelia",
     du: "16558974",
-    fechaNac: "17/09/1968",
+    fechaNac: "1968-09-17",
     pais: "Argentina",
     graduacion: "4to GUP",
     clasificacionGenNac: 825,
@@ -27,7 +27,7 @@ let competidor3 = new Competidor({
     apellido: "Gonzales",
     nombre: "Mariana",
     du: "46558712",
-    fechaNac: "02/12/2005",
+    fechaNac: "2005-12-02",
     pais: "Argentina",
     graduacion: "1ro GUP",
     clasificacionGenNac: 315,
@@ -63,8 +63,6 @@ function mostrarCompetidores(){
             '<b>Mail: </b> '+ competidor.email+'<br>'+
             '<b>Género: </b>'+ competidor.genero+
           '</p>'+
-          '<div class="card-footer">'+
-          '</div>'+
         '</div>'+
       '</div>';
         tarjetaS.push(tarjeta);

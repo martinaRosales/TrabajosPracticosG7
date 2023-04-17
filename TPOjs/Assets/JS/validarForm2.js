@@ -14,6 +14,9 @@ const messages = {
   du: "Ingrese los 8 dígitos de su DNI"
 };
 
+
+
+
 //json de paises permitidos
 const paisesPermitidos = [
   {"paisPermitido": "rusia"},
@@ -144,6 +147,7 @@ function validarDu(du){
 return duValidated
 }
 
+
 function validarFormulario() {
   const legajo = document.getElementById("legajo").value;
   const apellido = document.getElementById("apellido").value;
@@ -155,7 +159,6 @@ function validarFormulario() {
   const clasificacion = document.getElementById("clasificacion").value;
   const email = document.getElementById("email").value;
   const genero = document.querySelector('input[name="genero"]:checked');
-
   if (
     !validarCampo(legajo, "legajo") ||
     !validarCampo(apellido, "apellido") ||
@@ -168,6 +171,7 @@ function validarFormulario() {
     !validarCampo(email, "correo electrónico") ||
     !genero
   ) {
+
     return false;
   }
 
@@ -188,6 +192,10 @@ function validarFormulario() {
   envio.textContent= "";
   envio.style.display = "none";
   envio.classList.remove("is-invalid");
+  // newCompetidor = {legajo: legajo,apellido: apellido,nombre: nombre,du: du,fechaNac: fechaNacimiento,pais: paisOrigen,graduacion: graduacion,clasificacionGenNac: clasificacion,email: email,genero: genero};
+  // arrayCompetidores = localStorage.getItem('competidores');
+  // console.log(arrayCompetidores)
+  // arrayCompetidores.push(new Competidor(newCompetidor));
   return true;
   }
   
@@ -195,6 +203,9 @@ function validarFormulario() {
   e.preventDefault();
   if (validarFormulario()) {
   alert("Formulario enviado exitosamente");
+
+ 
+
   form.reset();
   }
   });
