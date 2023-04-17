@@ -1,3 +1,16 @@
+export {
+  validarApellido,
+  validarCampo,
+  validarClasificacion,
+  validarDu,
+  validarEdad,
+  validarEmail,
+  validarFormulario,
+  validarGal,
+  validarGenero,
+  validarNombre,
+  validarPais
+} 
 const form = document.getElementById("formulario");
 const envio = document.getElementById("envio");
 
@@ -76,7 +89,7 @@ function validarEmail(email) {
 
 //funcion que compara el país ingresado con un json de países permitidos
 function validarPais(pais) {
-  paisValidated = false;
+  let paisValidated = false;
   paisesPermitidos.forEach(jsonPais => {
     if (jsonPais.paisPermitido === pais.toLowerCase()) {
       paisValidated = true;
@@ -144,7 +157,7 @@ function validarNombre(string) {
 
 //Validar que el du sea un número y tenga 8 dígitos
 function validarDu(du) {
-  duValidated = true;
+  let duValidated = true;
   if (isNaN(du) || du.length != 8) {
     envio.textContent = messages.du;
     envio.style.display = 'block';
@@ -156,14 +169,14 @@ function validarDu(du) {
 
 //Validar que el genero no este vacio 
 function validarGenero(genero) {
-  generoValidated = true;
+  let generoValidated = true;
   if (!genero) {
     envio.textContent = messages.genero;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
-    duValidated = false
+    generoValidated = false
   }
-  return duValidated
+  return generoValidated
 }
 
 //Funcion que comprueba que todos los campos estén completos y con los datos correctos
@@ -202,15 +215,6 @@ function validarFormulario() {
   envio.style.display = "none";
   envio.classList.remove("is-invalid");
 
-  //se crea un objeto conpetidor con los datos del formulario
-  newCompetidor = { gal: gal, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
-
-  //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
-  let array = localStorage.getItem('competidores');
-  competidores = JSON.parse(array);
-  competidores.push(newCompetidor);
-  localStorage.setItem('competidores', JSON.stringify(competidores));
-
   return true;
 }
 
@@ -218,10 +222,6 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
-
-    //se llama a la funcion que imprime competidores para actualizar la lista
-    darCompetidores(competidores)
-
 
     form.reset();
   }
