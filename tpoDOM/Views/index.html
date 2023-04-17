@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Assets/CSS/estilos.css">
     <title>Document</title>
     <style>
         /* Estilo para campos válidos */
@@ -24,7 +25,36 @@
 </head>
 
 <body>
+    <header id="navbar" background="Assets/Img/fondo.png">
+        <ul class="nav nav-tabs" id="tabs">
+            <li class="nav-item">
+              <a class="nav-link active text-light" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Sets completos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Dados individuales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#">Sets especiales</a>
+            </li>
+          </ul>
+      </header>
     <div class="container ">
+     
+        <div class="row" style="justify-content: center;" id="seccion-uno">
+            <!-- seccion 1 -->
+        </div>
+
+        <div class="row" style="justify-content: center;" id="seccion-uno">
+            <!-- seccion 2 -->
+        </div>
+
+        <div class="row" style="justify-content: center;" id="seccion-uno">
+            <!-- seccion 3 -->
+        </div>
+
         <div class="container-formulario border border-primary m-2 p-2 mx-auto col-sm-6">
             <h1>Formulario de registro</h1>
             <form id="formulario">
@@ -129,18 +159,16 @@
             </form>
             <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
         </div>
-
-        <div class="row" style="justify-content: center;" id="tarjetas">
-            <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
-        </div>
-
     </div>
-
-    <script type="text/javascript" src="../Assets/JS/validarForm2.js"></script>
-    <script type="text/javascript" src="../Assets/JS/competidor.js"></script>
-    <script type="text/javascript" src="../Assets/JS/arrayCompetidores.js"></script>
-    <script src="../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
-
+    <footer class="page-footer font-small position-relative bottom-0">
+        <div class="container row mt-2">
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3 text-light col mx-0 mt-2" id="copyright">Grupo 7 :)
+          </div>
+        </div>
+      </footer>
+    <script type="module" src="../Assets/JS/index_DOM.js"></script> 
+   
 </body>
 
 </html>
