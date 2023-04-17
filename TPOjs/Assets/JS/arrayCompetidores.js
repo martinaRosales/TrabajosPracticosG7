@@ -40,8 +40,9 @@ localStorage.setItem('competidores', arrayCompetidores);
 
 window.addEventListener('load', function() {
     //Se cargan las tarjetas con los competidores
+    mostrarCompetidores()
     competidores = localStorage.getItem('competidores');
-    competiores.mostrarCompetidor()
+    //competiores.mostrarCompetidor()
   });
 
 //mostrar competidores
@@ -54,12 +55,12 @@ function mostrarCompetidores(){
           '<h5 class="card-title" id="nombreCompetidor">'+competidor.nombre+' '+ competidor.apellido +'</h5>'+
           '<p class="card-text">'+
             '<b>Legajo: </b>'+competidor.legajo+'<br>'+
-            '<b>DU: </b> $'+competidor.du+'<br>'+
-            '<b>Fecha de Nacimiento: </b> $'+ competidor.fechaNac+'<br>'+
-            '<b>Pais de origen: </b> $'+ competidor.pais+'<br>'+
-            '<b>Graduacion: </b> $'+ competidor.graduacion+'<br>'+
-            '<b>Clasificación nacional: </b> $'+ competidor.clasificacionGenNac+'<br>'+
-            '<b>Mail: </b> $'+ competidor.email+'<br>'+
+            '<b>DU: </b> '+competidor.du+'<br>'+
+            '<b>Fecha de Nacimiento: </b> '+ competidor.fechaNac+'<br>'+
+            '<b>Pais de origen: </b> '+ competidor.pais+'<br>'+
+            '<b>Graduacion: </b> '+ competidor.graduacion+'<br>'+
+            '<b>Clasificación nacional: </b> '+ competidor.clasificacionGenNac+'<br>'+
+            '<b>Mail: </b> '+ competidor.email+'<br>'+
             '<b>Género: </b>'+ competidor.genero+
           '</p>'+
           '<div class="card-footer">'+

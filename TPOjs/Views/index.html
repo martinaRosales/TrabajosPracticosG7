@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <div class="container border border-primary m-2 p-2 mx-auto col-sm-6">
+    <div class="container ">
+      <div class="container-formulario border border-primary m-2 p-2 mx-auto col-sm-6">
         <h1>Formulario de registro</h1>
         <form id="formulario" onsubmit="validarFormulario()">
             <div class="row mb-3">
@@ -110,6 +111,7 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
         <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
+      </div>
 
         <div class="row" style="justify-content: center;" id="tarjetas">
             <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
@@ -118,7 +120,8 @@
     </div>
 
     <script type="text/javascript" src="../Assets/JS/validarForm2.js"></script>
-    <!-- <script type="text/javascript" src="arrayCompetidores.js"></script> -->
+    <script type="text/javascript" src="../Assets/JS/competidor.js"></script>
+    <script type="text/javascript" src="../Assets/JS/arrayCompetidores.js"></script> 
     <script src="../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
    
 </body>
