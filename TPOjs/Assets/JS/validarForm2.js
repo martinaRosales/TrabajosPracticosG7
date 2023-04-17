@@ -163,7 +163,8 @@ function validarFormulario() {
   const graduacion = document.getElementById("graduacion").value;
   const clasificacion = document.getElementById("clasificacion").value;
   const email = document.getElementById("email").value;
-  const genero = document.querySelector('input[name="genero"]:checked').value;
+  const generoInput = document.querySelector('input[name="genero"]:checked');
+  const genero = generoInput ? generoInput.value : null;
   if (
     //Se comprueba que los campos no estén vacíos
     !validarCampo(legajo, "legajo") ||
@@ -175,7 +176,7 @@ function validarFormulario() {
     !validarCampo(graduacion, "grado de educación") ||
     !validarCampo(clasificacion, "clasificación") ||
     !validarCampo(email, "correo electrónico") ||
-    !genero
+    !validarCampo(genero, "genero")
   ) {
     return false;
   }
@@ -201,7 +202,7 @@ function validarFormulario() {
 
   //se crea un objeto conpetidor con los datos del formulario
   newCompetidor = { legajo: legajo, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
-  
+
   //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
   let array = localStorage.getItem('competidores');
   competidores = JSON.parse(array);
@@ -216,7 +217,7 @@ form.addEventListener("submit", (e) => {
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
 
-   //se llama a la funcion que imprime competidores para actualizar la lista
+    //se llama a la funcion que imprime competidores para actualizar la lista
     darCompetidores(competidores)
 
 
