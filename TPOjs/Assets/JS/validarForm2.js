@@ -6,6 +6,7 @@ const messages = {
   gal: "Ingrese un gal válido (3 letras (MAYUS) seguidas de 7 números)",
   apellido: "El apellido ingresado es demasiado largo",
   nombre: "El nombre ingresado es demasiado largo",
+  esnumero: "Por favor, ingrese caracteres dentro del abecedario (a-z) en su nombre y apellido",
   fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
   paisOrigen: "El país ingresado no está en los países registrados",
   graduacion: "Seleccione su grado de educación",
@@ -117,24 +118,39 @@ function validarClasificacion(clasificacion) {
 //Validar que el apellido tenga menos de 100 caracteres
 function validarApellido(string) {
   let apellidoValidated = true;
+ if(isNaN(string)){
   if (string.length > 100) {
     envio.textContent = messages.apellido;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     apellidoValidated = false
   }
+ } else {
+  envio.textContent = messages.esnumero;
+  envio.style.display = 'block';
+  envio.classList.add("is-invalid");
+  apellidoValidated = false
+}
   return apellidoValidated
 }
 
 //Validar que el nombre tenga menos de 100 caracteres
 function validarNombre(string) {
   let nombreValidated = true;
-  if (string.length > 100) {
-    envio.textContent = messages.nombre;
+  if(isNaN(string)){
+    if (string.length > 100) {
+      envio.textContent = messages.nombre;
+      envio.style.display = 'block';
+      envio.classList.add("is-invalid");
+      nombreValidated = false
+    }
+  } else {
+    envio.textContent = messages.esnumero;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     nombreValidated = false
   }
+
   return nombreValidated
 }
 

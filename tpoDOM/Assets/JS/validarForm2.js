@@ -19,6 +19,7 @@ const messages = {
   gal: "Ingrese un gal válido (3 letras (MAYUS) seguidas de 7 números)",
   apellido: "El apellido ingresado es demasiado largo",
   nombre: "El nombre ingresado es demasiado largo",
+  esnumero: "Por favor, ingrese caracteres dentro del abecedario (a-z) en su nombre y apellido",
   fechaNacimiento: "Ingrese una fecha valida, debe tener minimo 6 años de edad",
   paisOrigen: "El país ingresado no está en los países registrados",
   graduacion: "Seleccione su grado de educación",
@@ -162,16 +163,25 @@ function validarClasificacion(clasificacion) {
 function validarApellido(string) {
   let apellidoValidated = true;
   const apellidoInput = document.querySelector("#apellido");
-  if (string.length > 100) {
-    envio.textContent = messages.apellido;
+  if(isNaN(string)){
+    if (string.length > 100) {
+      envio.textContent = messages.apellido;
+      envio.style.display = 'block';
+      envio.classList.add("is-invalid");
+      apellidoValidated = false
+      apellidoInput.style.borderColor = "red";
+      apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
+    }
+    else {
+      apellidoInput.style.borderColor = "green";
+      apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
+    }
+  } else {
+    envio.textContent = messages.esnumero;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     apellidoValidated = false
     apellidoInput.style.borderColor = "red";
-    apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
-  }
-  else {
-    apellidoInput.style.borderColor = "green";
     apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
   }
   return apellidoValidated
@@ -181,17 +191,26 @@ function validarApellido(string) {
 function validarNombre(string) {
   let nombreValidated = true;
   const nombreInput = document.querySelector("#nombre");
-  if (string.length > 100) {
-    envio.textContent = messages.nombre;
+  if(isNaN(string)){
+    if (string.length > 100) {
+      envio.textContent = messages.nombre;
+      envio.style.display = 'block';
+      envio.classList.add("is-invalid");
+      nombreInput.style.borderColor = "red";
+      nombreInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
+      nombreValidated = false
+    }
+    else {
+      nombreInput.style.borderColor = "green";
+      nombreInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
+    }
+  } else {
+    envio.textContent = messages.esnumero;
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     nombreInput.style.borderColor = "red";
     nombreInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     nombreValidated = false
-  }
-  else {
-    nombreInput.style.borderColor = "green";
-    nombreInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
   }
   return nombreValidated
 }
