@@ -6,12 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Public/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../Assets/JS/CSS/styles.css">
+    <title>Registro competencia</title>
 </head>
 
 <body>
+    <header class="d-flex justify-content-center">
+        <h1 class="text-light mt-2">TaeKwonDo WTF - Poomsae Inscripciones</h1>
+      </header>
     <div class="container ">
-      <div class="container-formulario border border-primary m-2 p-2 mx-auto col-sm-6">
+      <div class="container-formulario border m-2 p-2 mx-auto col-sm-6">
         <h1>Formulario de registro</h1>
         <form id="formulario" >
             <div class="row mb-3">
@@ -107,7 +111,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="submit" class="btn text-light">Enviar</button>
         </form>
         <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
       </div>
@@ -117,7 +121,13 @@
           </div>
 
     </div>
-
+    <footer class="page-footer font-small position-relative bottom-0">
+        <div class="container row mt-2">
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3 text-light col mx-0 mt-2" id="copyright">Grupo 7 :)
+          </div>
+        </div>
+      </footer>
     <script type="text/javascript" src="../Assets/JS/validarForm2.js"></script>
     <script type="text/javascript" src="../Assets/JS/competidor.js"></script>
     <script type="text/javascript" src="../Assets/JS/arrayCompetidores.js"></script> 
