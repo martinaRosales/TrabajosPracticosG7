@@ -283,6 +283,16 @@ function validarFormulario() {
   envio.style.display = "none";
   envio.classList.remove("is-invalid");
 
+    //se crea un objeto conpetidor con los datos del formulario
+    let newCompetidor = { gal: gal, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+
+    //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
+    let array = localStorage.getItem('competidores');
+    let competidores = JSON.parse(array);
+    competidores.push(newCompetidor);
+    localStorage.setItem('competidores', JSON.stringify(competidores));
+    //se llama a la funcion que imprime competidores para actualizar la lista
+    darCompetidores(competidores)
   return true;
 }
 
@@ -291,6 +301,9 @@ form.addEventListener("submit", (e) => {
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
     form.reset();
+
+    
+
 
     //seleccionar todos los input y limpiar los bordes 
     const inputs = form.querySelectorAll('input');
