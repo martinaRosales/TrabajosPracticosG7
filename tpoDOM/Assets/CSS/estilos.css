@@ -3,6 +3,9 @@ header {
     width: 100%;
   }
   
+  .btn{
+    background-color: #e9431e;
+  }
   
   footer {
     background-color: #e9431e; 
