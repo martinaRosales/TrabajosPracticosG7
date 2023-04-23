@@ -5,7 +5,6 @@ export {
   validarDu,
   validarEdad,
   validarEmail,
-  validarFormulario,
   validarGal,
   validarGenero,
   validarNombre,
@@ -50,12 +49,37 @@ const paisesPermitidos = [
   { "paisPermitido": "uruguay" }
 ]
 
+$(function () {
+  let paisesPermitidos = [
+    "Rusia",
+    "Ucrania",
+    "Estados Unidos",
+    "Canada",
+    "Perú",
+    "Chile",
+    "Argentina",
+    "Mexico",
+    "Brasil",
+    "Bolivia",
+    "Ecuador",
+    "Venezuela",
+    "Paraguay",
+    "Uruguay",
+    "Colombia"
+  ];
+  $("#pais").autocomplete({
+    source: paisesPermitidos
+  });
+});
+
 //funcion que comprueb que el campo no esté vacío
 function validarCampo(valor, campo) {
   if (valor.trim() === "") {
     envio.textContent = `El campo ${campo} es requerido`;
     envio.style.display = "block";
     return false;
+  } else {
+    envio.style.display = 'none';
   }
   return true;
 }
@@ -64,6 +88,7 @@ function validarCampo(valor, campo) {
 function validarGal(gal) {
   const regexGal = /^[A-Z]{3}\d{7}$/;
   const galInput = document.querySelector("#gal");
+  console.log(gal);
   if (!regexGal.test(gal)) {
     envio.textContent = messages.gal;
     envio.style.display = "block";
@@ -103,6 +128,7 @@ function validarPais(pais) {
   const paisInput = document.querySelector("#pais");
   paisesPermitidos.forEach(jsonPais => {
     if (jsonPais.paisPermitido === pais.toLowerCase()) {
+      envio.style.display = 'none';
       paisInput.style.borderColor = "green";
       paisInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
       paisValidated = true;
@@ -125,7 +151,7 @@ function validarEdad(fecha) {
   const fechaActual = new Date(); //se obtiene la clase date para saber el año actual
   const anioActual = fechaActual.getFullYear(); // devuelve el año actual  
   const edad = anioActual - anioNac;
-  const edadInput = document.querySelector("#fecha-nacimiento")
+  const edadInput = document.querySelector("#fecha-nacimiento");
   if (edad < 6) {
     envio.textContent = messages.fechaNacimiento;
     envio.style.display = "block";
@@ -133,10 +159,18 @@ function validarEdad(fecha) {
     edadInput.style.borderColor = "red";
     edadInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     return false;
-  } else {
+  } else if (edad > 6) {
+    envio.style.display = 'none';
     edadInput.style.borderColor = "green";
     edadInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     return true;
+  } else {
+    envio.textContent = messages.fechaNacimiento;
+    envio.style.display = "block";
+    envio.classList.add("is-invalid");
+    edadInput.style.borderColor = "red";
+    edadInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
+    return false;
   }
 }
 
@@ -163,7 +197,7 @@ function validarClasificacion(clasificacion) {
 function validarApellido(string) {
   let apellidoValidated = true;
   const apellidoInput = document.querySelector("#apellido");
-  if(isNaN(string)){
+  if (isNaN(string)) {
     if (string.length > 100) {
       envio.textContent = messages.apellido;
       envio.style.display = 'block';
@@ -173,6 +207,7 @@ function validarApellido(string) {
       apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     }
     else {
+      envio.style.display = 'none';
       apellidoInput.style.borderColor = "green";
       apellidoInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     }
@@ -191,7 +226,7 @@ function validarApellido(string) {
 function validarNombre(string) {
   let nombreValidated = true;
   const nombreInput = document.querySelector("#nombre");
-  if(isNaN(string)){
+  if (isNaN(string)) {
     if (string.length > 100) {
       envio.textContent = messages.nombre;
       envio.style.display = 'block';
@@ -201,6 +236,7 @@ function validarNombre(string) {
       nombreValidated = false
     }
     else {
+      envio.style.display = 'none';
       nombreInput.style.borderColor = "green";
       nombreInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
     }
@@ -228,6 +264,7 @@ function validarDu(du) {
     duValidated = false
   }
   else {
+    envio.style.display = 'none';
     duInput.style.borderColor = "green";
     duInput.style.boxShadow = '2px 2px 4px rgba(0, 0, 0, 0.4)';
   }
@@ -243,49 +280,126 @@ function validarGenero(genero) {
     envio.style.display = 'block';
     envio.classList.add("is-invalid");
     generoValidated = false
+  } else {
+    envio.style.display = 'none';
   }
   return generoValidated
 }
 
 //Funcion que comprueba que todos los campos estén completos y con los datos correctos
-function validarFormulario() {
-  //Se recuperan los datos del formulario
-  const gal = document.getElementById("gal").value;
-  const apellido = document.getElementById("apellido").value;
-  const nombre = document.getElementById("nombre").value;
-  const du = document.getElementById("du").value;
-  const fechaNacimiento = document.getElementById("fecha-nacimiento").value;
-  const paisOrigen = document.getElementById("pais").value;
-  const graduacion = document.getElementById("graduacion").value;
-  const clasificacion = document.getElementById("clasificacion").value;
-  const email = document.getElementById("email").value;
-  const generoInput = document.querySelector('input[name="genero"]:checked');
-  const genero = generoInput ? generoInput.value : null;
+let nombreValido = false;
+let apellidoValido = false;
+let duValido = false;
+let edadValida = false;
 
-  if (
-    //Se comprueba que los campos no estén vacíos y sean correctos 
-    (!validarCampo(gal, "GAL") || !validarGal(gal)) ||
-    (!validarCampo(apellido, "apellido") || !validarApellido(apellido)) ||
-    (!validarCampo(nombre, "nombre") || !validarNombre(nombre)) ||
-    (!validarCampo(du, "du") || !validarDu(du)) ||
-    (!validarCampo(fechaNacimiento, "fecha de nacimiento") || !validarEdad(fechaNacimiento)) ||
-    (!validarCampo(paisOrigen, "país de origen") || !validarPais(paisOrigen)) ||
-    (!validarCampo(graduacion, "grado de educación")) ||
-    (!validarCampo(clasificacion, "clasificación") || !validarClasificacion(clasificacion)) ||
-    (!validarCampo(email, "correo electrónico") || !validarEmail(email)) ||
-    (!validarGenero(genero))
-  ) {
-    return false;
+const nombre = document.getElementById("nombre");
+const apellido = document.getElementById("apellido");
+const du = document.getElementById("du");
+const fechaNac = document.getElementById("fecha-nacimiento");
+
+nombre.addEventListener('blur', function () {
+  const value = this.value;
+  nombreValido = validarNombre(value);
+  validarCampos();
+});
+
+
+apellido.addEventListener('blur', function () {
+  const value = this.value;
+  apellidoValido = validarApellido(value);
+  validarCampos();
+});
+
+du.addEventListener('blur', function () {
+  const value = this.value;
+  duValido = validarDu(value);
+  validarCampos();
+});
+
+fechaNac.addEventListener('blur', function () {
+  const value = this.value;
+  edadValida = validarEdad(value);
+  validarCampos();
+});
+
+
+/* function validarCampos() {
+  const btn = document.getElementById('siguiente');
+  if (nombreValido && apellidoValido && duValido && edadValida) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
   }
+} */
 
 
-  envio.textContent = "";
-  envio.style.display = "none";
-  envio.classList.remove("is-invalid");
+let paisValido = false;
+let emailValido = false;
+let generoValido = true;
 
-  return true;
+
+const paisOrigen = document.getElementById("pais");
+const email = document.getElementById("email");
+const generoInput = document.querySelector('input[name="genero"]:checked');
+
+
+paisOrigen.addEventListener('blur', function () {
+  const value = this.value;
+  paisValido = validarPais(value);
+  validarCampos();
+});
+
+email.addEventListener('blur', function () {
+  const value = this.value;
+  emailValido = validarEmail(value);
+  validarCampos();
+});
+
+/* generoInput.forEach(function(generoInput) {
+  generoInput.addEventListener('change', function() {
+    generoValido = true;
+    validarSegundoCampo();
+  });
+}); */
+
+let galValido = false;
+let graduacionValido = false;
+let clasificacionValido = false;
+
+const gal = document.getElementById("gal");
+gal.addEventListener('blur', function () {
+  const value = this.value;
+  // Realiza la validación aquí y muestra un mensaje si es necesario
+  galValido = validarGal(value);
+  validarCampos();
+});
+
+const graduacion = document.getElementById("graduacion");
+graduacion.addEventListener('blur', function () {
+  const value = this.value;
+  // Realiza la validación aquí y muestra un mensaje si es necesario
+  graduacionValido = validarCampo(value, 'grado de educacion');
+  validarCampos();
+});
+
+const clasificacion = document.getElementById("clasificacion");
+clasificacion.addEventListener('blur', function () {
+  const value = this.value;
+  // Realiza la validación aquí y muestra un mensaje si es necesario
+  clasificacionValido = validarClasificacion(value);
+  validarCampos();
+});
+
+function validarCampos() {
+  const btn = document.getElementById('enviarBtn');
+  if (nombreValido && apellidoValido && duValido && edadValida && paisValido && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
 }
 
+/* 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (validarFormulario()) {
@@ -299,4 +413,4 @@ form.addEventListener("submit", (e) => {
       inputs[i].style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0)';
     }
   }
-});
+}); */
