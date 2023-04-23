@@ -297,102 +297,139 @@ const apellido = document.getElementById("apellido");
 const du = document.getElementById("du");
 const fechaNac = document.getElementById("fecha-nacimiento");
 
+let valueNombre;
 nombre.addEventListener('blur', function () {
   const value = this.value;
+  valueNombre = value;
   nombreValido = validarNombre(value);
   validarCampos();
 });
 
-
+let valueApellido;
 apellido.addEventListener('blur', function () {
   const value = this.value;
+  valueApellido = value;
   apellidoValido = validarApellido(value);
   validarCampos();
 });
 
+let valueDu;
 du.addEventListener('blur', function () {
   const value = this.value;
+  valueDu = value;
   duValido = validarDu(value);
   validarCampos();
 });
 
+let valueFecha;
 fechaNac.addEventListener('blur', function () {
   const value = this.value;
+  valueFecha = value;
   edadValida = validarEdad(value);
   validarCampos();
 });
-
-
-/* function validarCampos() {
-  const btn = document.getElementById('siguiente');
-  if (nombreValido && apellidoValido && duValido && edadValida) {
-    btn.disabled = false;
-  } else {
-    btn.disabled = true;
-  }
-} */
 
 
 let paisValido = false;
 let emailValido = false;
 let generoValido = true;
 
-
 const paisOrigen = document.getElementById("pais");
 const email = document.getElementById("email");
 const generoInput = document.querySelector('input[name="genero"]:checked');
 
-
+let valuePais;
 paisOrigen.addEventListener('blur', function () {
   const value = this.value;
+  valuePais = value;
   paisValido = validarPais(value);
   validarCampos();
 });
 
+let valueEmail;
 email.addEventListener('blur', function () {
   const value = this.value;
+  valueEmail = value;
   emailValido = validarEmail(value);
   validarCampos();
 });
 
-/* generoInput.forEach(function(generoInput) {
-  generoInput.addEventListener('change', function() {
-    generoValido = true;
-    validarSegundoCampo();
+/* let valueGenero;
+let genero = document.querySelector('input[name="genero"]:checked');
+if (genero !== null) {
+  valueGenero = genero;
+} else {
+  valueGenero = '';
+} */
+let generoSeleccionado = null;
+let generoRadios = document.getElementsByName('genero');
+
+for (let i = 0; i < generoRadios.length; i++) {
+  generoRadios[i].addEventListener('change', function () {
+    generoSeleccionado = this.value;
   });
-}); */
+}
+
+// A continuación puedes realizar alguna acción con el valor de "generoSeleccionado" después de que se haya seleccionado una opción.
+
+
 
 let galValido = false;
 let graduacionValido = false;
 let clasificacionValido = false;
 
 const gal = document.getElementById("gal");
+const graduacion = document.getElementById("graduacion");
+const clasificacion = document.getElementById("clasificacion");
+
+let valueGal;
 gal.addEventListener('blur', function () {
   const value = this.value;
+  valueGal = value;
   // Realiza la validación aquí y muestra un mensaje si es necesario
   galValido = validarGal(value);
   validarCampos();
 });
 
-const graduacion = document.getElementById("graduacion");
+let valueGraduacion;
 graduacion.addEventListener('blur', function () {
   const value = this.value;
+  valueGraduacion = value;
   // Realiza la validación aquí y muestra un mensaje si es necesario
   graduacionValido = validarCampo(value, 'grado de educacion');
   validarCampos();
 });
 
-const clasificacion = document.getElementById("clasificacion");
+
+
+let valueClasificacion;
 clasificacion.addEventListener('blur', function () {
   const value = this.value;
+  valueClasificacion = value;
   // Realiza la validación aquí y muestra un mensaje si es necesario
   clasificacionValido = validarClasificacion(value);
   validarCampos();
 });
 
-    //se crea un objeto conpetidor con los datos del formulario
-    let newCompetidor = { gal: gal, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+//se crea un objeto conpetidor con los datos del formulario
 
+
+function validarCampos() {
+  const btn = document.getElementById('enviarBtn');
+  if (nombreValido && apellidoValido && duValido && edadValida && paisValido && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
+    btn.style.display = 'block';
+    agregarCompetidor();
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+
+function agregarCompetidor() {
+  const btn = document.getElementById('enviarBtn');
+  btn.addEventListener('click', () => {
+    let newCompetidor = { gal: valueGal, apellido: valueApellido, nombre: valueNombre, du: valueDu, fechaNac: valueFecha, pais: valuePais, graduacion: valueGraduacion, clasificacionGenNac: valueClasificacion, email: valueEmail, genero: generoSeleccionado };
+    console.log(newCompetidor);
     //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
     let array = localStorage.getItem('competidores');
     let competidores = JSON.parse(array);
@@ -400,13 +437,8 @@ clasificacion.addEventListener('blur', function () {
     localStorage.setItem('competidores', JSON.stringify(competidores));
     //se llama a la funcion que imprime competidores para actualizar la lista
     darCompetidores(competidores)
-function validarCampos() {
-  const btn = document.getElementById('enviarBtn');
-  if (nombreValido && apellidoValido && duValido && edadValida && paisValido && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
-    btn.style.display = 'block';
-  } else {
-    btn.style.display = 'none';
-  }
+  })
+
 }
 
 /* 
