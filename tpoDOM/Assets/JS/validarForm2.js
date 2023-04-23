@@ -390,6 +390,16 @@ clasificacion.addEventListener('blur', function () {
   validarCampos();
 });
 
+    //se crea un objeto conpetidor con los datos del formulario
+    let newCompetidor = { gal: gal, apellido: apellido, nombre: nombre, du: du, fechaNac: fechaNacimiento, pais: paisOrigen, graduacion: graduacion, clasificacionGenNac: clasificacion, email: email, genero: genero };
+
+    //Se obtiene el array de objetos competidores y se pushea el objeto nuevo
+    let array = localStorage.getItem('competidores');
+    let competidores = JSON.parse(array);
+    competidores.push(newCompetidor);
+    localStorage.setItem('competidores', JSON.stringify(competidores));
+    //se llama a la funcion que imprime competidores para actualizar la lista
+    darCompetidores(competidores)
 function validarCampos() {
   const btn = document.getElementById('enviarBtn');
   if (nombreValido && apellidoValido && duValido && edadValida && paisValido && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
@@ -405,6 +415,9 @@ form.addEventListener("submit", (e) => {
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
     form.reset();
+
+    
+
 
     //seleccionar todos los input y limpiar los bordes 
     const inputs = form.querySelectorAll('input');
