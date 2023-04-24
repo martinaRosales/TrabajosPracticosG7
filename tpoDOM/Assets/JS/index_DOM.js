@@ -4,8 +4,7 @@ import {
     validarClasificacion, 
     validarDu, 
     validarEdad, 
-    validarEmail,  
-    validarFormulario, 
+    validarEmail,   
     validarGal, 
     validarGenero, 
     validarNombre, 
@@ -20,11 +19,14 @@ export {
     validarClasificacion, 
     validarDu, 
     validarEdad, 
-    validarEmail, 
-    validarFormulario, 
+    validarEmail,  
     validarGal, 
     validarGenero, 
     validarNombre, 
     validarPais 
 } from './validarForm2.js'
 
+//exportar el menu
+export {
+    botonMenu,
+} from './menu.js' 
