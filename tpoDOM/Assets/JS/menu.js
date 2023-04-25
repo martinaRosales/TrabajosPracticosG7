@@ -9,7 +9,7 @@ function botonMenu (){
     document.addEventListener('keydown', (event) => {
         let alt = event.altKey; //devuelve true cuando se presiona  alt
         let m = event.key;//valor de la tecla presionada 
-        if ( alt && m === 'm' || m == 'm') {
+        if ( alt && m === 'm' ) {
             boton.click();
         }
     });
