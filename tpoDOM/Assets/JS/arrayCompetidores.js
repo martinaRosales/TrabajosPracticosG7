@@ -85,7 +85,8 @@ function tablaCompetidores(competidores){
 const botonSelect = document.getElementById("boton-select")
 
 botonSelect.addEventListener('click', ()=>{
-arrayCompetidoresFiltrados = filterByParameter(arrayCompetidores);
+  competidoresActuales = localStorage.getItem('competidores');
+arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidoresActuales));
 tablaCompetidores(arrayCompetidoresFiltrados)
 
 });
