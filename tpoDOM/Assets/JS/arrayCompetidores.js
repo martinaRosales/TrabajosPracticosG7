@@ -60,6 +60,72 @@ function darPerfil(competidor){
 return competidorInfo;     
 }  
 
+function tablaCompetidores(competidores){
+  let table = document.getElementById("table-body")
+  console.log(table)
+  let arrayRows = [];
+ competidores.forEach(competidor =>{
+   let classCompetidor = new Competidor(competidor);
+   let row = "<tr>"+
+   "<td>"+ classCompetidor.getNombre()+"</td>"+
+   "<td>"+ classCompetidor.getApellido()+"</td>"+
+   "<td>"+ classCompetidor.getGenero()+"</td>"+
+   "<td>"+ classCompetidor.getPais()+"</td>"+
+   "<td>"+ classCompetidor.getGraduacion()+"</td>"+
+   "<td>"+ classCompetidor.getClasificacion()+"</td>"+
+   "<td>"+ classCompetidor.getGal()+"</td>"
+   +"</tr>";
+   arrayRows.push(row);
+   console.log()
+ })
+  console.log(arrayRows)
+  table.innerHTML = arrayRows
+}
+
+const botonSelect = document.getElementById("boton-select")
+
+botonSelect.addEventListener('click', ()=>{
+arrayCompetidoresFiltrados = filterByParameter(arrayCompetidores);
+tablaCompetidores(arrayCompetidoresFiltrados)
+
+});
+
+function filterByParameter(competidores){
+filtro = {
+  tipo: document.getElementById("filtro-select").value,
+  valor: document.getElementById("filtro-busqueda").value
+}
+competidoresFiltrados = []
+competidores.forEach(competidor=>{
+  switch (filtro.tipo){
+    case "default":
+      competidoresFiltrados.push(competidor);
+      break;
+    case "nombre":
+      if (competidor.nombre === filtro.valor){
+        competidoresFiltrados.push(competidor);
+      } else {
+        //aca deberia meter un mensaje de que no se encontraron competidores
+      }
+      break;
+    case "apellido":
+      if (competidor.apellido === filtro.valor){
+        competidoresFiltrados.push(competidor);
+      } else {
+        //aca deberia meter un mensaje de que no se encontraron competidores
+      }
+      break;
+    case "pais":
+      if (competidor.pais === filtro.valor){
+        competidoresFiltrados.push(competidor);
+      } else {
+        //aca deberia meter un mensaje de que no se encontraron competidores
+      }
+      break;
+  }
+});
+return competidoresFiltrados;
+}
 
 //Se guarda el array en un localStorage
 localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
@@ -67,6 +133,7 @@ localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
 window.addEventListener('load', function () {
   //Se llama a la funcion que imprime los datos de los competidores en pantalla
   darCompetidores(arrayCompetidores)
+  tablaCompetidores(arrayCompetidores)
 });
 
 //Se crea una función que crea intancias de la clase competidor llama al método que retorna una tarjeta html en string
