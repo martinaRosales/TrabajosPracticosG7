@@ -3,10 +3,10 @@
   --linea--border-vacio:#e0e0e0;
 }
 
-header {
+/* header {
     background-color: #e9431e;
     width: 100%;
-  }
+  } */
   
   .btn{
     background-color: #e9431e;
@@ -21,7 +21,7 @@ header {
     width:100%;
   }
   
-  #navbar{
+  /* #navbar{
     background-color: #e9431e;
     color: white;
   }
@@ -32,7 +32,7 @@ header {
 
   #navbarHeader a:hover {
     background-color: #ee4d29;
-  }
+  } */
   
 
   /* BARRA PROGRESO FORMULARIO */
@@ -109,3 +109,11 @@ header {
   .boton{
     margin-top: 30px;
   }
+
+
+  
+  
+  
+  
+  
+  

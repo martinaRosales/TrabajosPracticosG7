@@ -9,6 +9,8 @@
       href="../Public/bootstrap-5.0.2-dist/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="../Assets/CSS/estilos.css" />
+    <link rel="stylesheet" href="../Assets/CSS/video.css">
+    <link rel="stylesheet" href="../Assets/CSS/menu.css">
     <title>Document</title>
     <link
       rel="stylesheet"
@@ -20,52 +22,60 @@
   </head>
 
   <body>
-    <header id="navbar" background="Assets/Img/fondo.png" >
-
+    <header id="navbar">
       <div class="collapse" id="navbarToggleExternalContent">
-          <nav class="row bg-dark p-4">
-
-              <div class="col nav-item">
-                  <a class="nav-link active text-light" aria-current="page" href="#">Seccion 1</a>
-              </div>
-              <div class="col nav-item">
-                  <a class="nav-link text-light" href="#">Seccion 2</a>
-              </div>
-              <div class="col nav-item">
-                  <a class="nav-link text-light" href="#">Seccion 3</a>
-              </div>
-              <div class="col nav-item">
-                  <a class="nav-link text-light" href="#">Seccion 4</a>
-              </div>
-
-          </nav>
+        <nav class="row  bg-dark p-4">
+            <div class="col nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="#seccion-uno">Seccion 1</a>
+            </div>
+            <div class="col nav-item">
+                <a class="nav-link text-light" href="#seccion-dos">Seccion 2</a>
+            </div>
+            <div class="col nav-item">
+                <a class="nav-link text-light" href="#seccion-tres">Seccion 3</a>
+            </div>
+            <div class="col nav-item">
+                <a class="nav-link text-light" href="#seccion-cuatro">Seccion 4</a>
+            </div>
+        </nav>
       </div>
-      <nav class="navbar navbar-dark bg-dark">
-          <div class="container-fluid">
-              <button id="botonMenu" class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                  aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-          </div>
-      </nav>
-
+      <nav class="navbar navbar-dark bg-dark" >
+        <div class="container-fluid">
+            <button id="botonMenu" class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
   </header>
-  <br>
+<br>
     <div class="container">
       <div class="row" style="justify-content: center" id="seccion-uno">
-        <!-- seccion 1 -->
+        <!-- seccion 1 Timer -->
       </div>
-
-      <div class="row" style="justify-content: center" id="seccion-uno">
+<br>
+      <div class="row text-center border m-2 p-4 mx-auto col-sm-10" style="justify-content: center" id="seccion-dos">
         <!-- seccion 2 -->
+        <h2>Ultima Competencia Internacional Taekwondo WTF</h2> <br>
+        <div class="ratio" style="--bs-aspect-ratio: 50%;" id="video">
+          <iframe  src="https://www.youtube.com/embed/ermNRSmkGF8"
+          title="Ultima Competencia Internacional Poomsae"  
+          allowfullscreen></iframe>
+        </div>
+        <div id="link" >
+          <a href="https://youtu.be/ermNRSmkGF8">Link Video en YouTube</a>
+        </div>
+      
       </div>
-
-      <div class="row" style="justify-content: center" id="seccion-uno">
+<br>
+      <div class="row" style="justify-content: center" id="seccion-tres">
         <!-- seccion 3 -->
       </div>
-
-      <div class="container-formulario border m-2 p-2 mx-auto col-sm-10">
+<br>
+      <div class="container-formulario border m-2 p-2 mx-auto col-sm-10" id="seccion-cuatro">
+        <!-- seccion 4 -->
+        
         <h1>Formulario de registro</h1>
         <form id="formulario">
           <div class="contenedor">
@@ -195,10 +205,10 @@
                   name="gal"
                   placeholder="Ej: ABC1234567"
                 />
-                <span id="gal-error" style="display: none"
+                <!-- <span id="gal-error" style="display: none"
                   >El GAL debe tener 9 caracteres, los primeros 3 letras y los
                   restantes números (Ej: ABC1234567)</span
-                >
+                > -->
               </div>
             </div>
             <div class="row mb-3">
@@ -267,13 +277,15 @@
                 <button type="submit" class="btn text-light">Enviar</button>
             </form> -->
             <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
-        </div>
+        
+        
+          </div>
 
         <div class="row" style="justify-content: center;" id="tarjetas">
             <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
           </div>
     </div>
-    <footer class="page-footer font-small position-relative bottom-0">
+    <footer class="page-footer font-small position-relative bottom-0 bg-dark">
       <div class="container row mt-2">
         <!-- Copyright -->
         <div
@@ -284,15 +296,12 @@
         </div>
       </div>
     </footer>
+
     <script src="../Assets/JS/barraProgreso.js"></script>
     <script type="module" src="../Assets/JS/index_DOM.js"></script>
-  </body>
-</html>
-      </footer>
-    <script type="module" src="../Assets/JS/index_DOM.js"></script> 
     <script src="../Assets/JS/arrayCompetidores.js"></script>
     <script src="../Assets/JS/competidor.js"></script>
    
-</body>
+  </body>
 
 </html>

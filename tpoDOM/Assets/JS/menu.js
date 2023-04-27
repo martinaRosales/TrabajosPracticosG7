@@ -1,5 +1,5 @@
 
-/*Hacer además que con el teclado la combinación de teclas Alt+m despliegue el
+/*1.a) Hacer además que con el teclado la combinación de teclas Alt+m despliegue el
 menú (usando solamente javaScript) */
 
 function botonMenu (){
@@ -9,8 +9,11 @@ function botonMenu (){
     document.addEventListener('keydown', (event) => {
         let alt = event.altKey; //devuelve true cuando se presiona  alt
         let m = event.key;//valor de la tecla presionada 
-        if ( alt && m === 'm' || m == 'm') {
+    //    console.log( event.key)
+        if ( alt && m === 'm' ) {
             boton.click();
+            console.log('Letra: Alt' )
+            console.log('Letra: '+ m)
         }
     });
     
@@ -19,5 +22,7 @@ function botonMenu (){
 
 botonMenu()
 export {botonMenu};
+
+
 
 
