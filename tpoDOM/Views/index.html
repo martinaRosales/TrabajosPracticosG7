@@ -24,7 +24,7 @@
   <body>
     <header id="navbar">
       <div class="collapse" id="navbarToggleExternalContent">
-        <nav class="row  bg-dark p-4">
+        <nav class="navbar row bg-dark p-4 navbar-expand-xl">
             <div class="col nav-item">
                 <a class="nav-link active text-light" aria-current="page" href="#seccion-uno">Seccion 1</a>
             </div>
@@ -39,16 +39,53 @@
             </div>
         </nav>
       </div>
-      <nav class="navbar navbar-dark bg-dark" >
+      <nav class="navbar navbar-dark bg-dark"  id="menu-grande">
         <div class="container-fluid">
-            <button id="botonMenu" class="navbar-toggler ms-auto " type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button id="botonMenu" 
+              class="navbar-toggler ms-auto" 
+              type="button" 
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
             </button>
         </div>
-    </nav>
-  </header>
+      </nav>
+
+      <!-- Menu en pantalla mas chica  -->
+      <div class="collapse" id="navbarToggleExternalContent2">
+        <nav class="navbar row bg-dark p-4">
+            <ul>
+              <div class="il nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="#seccion-uno">Seccion 1</a>
+            </div>
+            <div class="il nav-item">
+                <a class="nav-link text-light" href="#seccion-dos">Seccion 2</a>
+            </div>
+            <div class="il nav-item">
+                <a class="nav-link text-light" href="#seccion-tres">Seccion 3</a>
+            </div>
+            <div class="il nav-item">
+                <a class="nav-link text-light" href="#seccion-cuatro">Seccion 4</a>
+            </div>
+            </ul>
+        </nav>
+      </div>
+      <nav class="navbar " id="menu-chico">
+        <div class="container-fluid">
+            <button id="botonMenu"
+              class="mobile-toggler  d-sm-none navbar-light " 
+              type="button" 
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarToggleExternalContent2" 
+              aria-controls="navbarToggleExternalContent2"
+              aria-expanded="false" 
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+      </nav>
+  </header> 
 <br>
     <div class="container">
       <div class="row" style="justify-content: center" id="seccion-uno">
@@ -56,7 +93,7 @@
       </div>
 <br>
       <div class="row text-center border m-2 p-4 mx-auto col-sm-10" style="justify-content: center" id="seccion-dos">
-        <!-- seccion 2 -->
+        <!-- seccion 2 Video -->
         <h2>Ultima Competencia Internacional Taekwondo WTF</h2> <br>
         <div class="ratio" style="--bs-aspect-ratio: 50%;" id="video">
           <iframe  src="https://www.youtube.com/embed/ermNRSmkGF8"
@@ -66,16 +103,14 @@
         <div id="link" >
           <a href="https://youtu.be/ermNRSmkGF8">Link Video en YouTube</a>
         </div>
-      
       </div>
 <br>
       <div class="row" style="justify-content: center" id="seccion-tres">
-        <!-- seccion 3 -->
+        <!-- seccion 3 Tabla -->
       </div>
 <br>
-      <div class="container-formulario border m-2 p-2 mx-auto col-sm-10" id="seccion-cuatro">
-        <!-- seccion 4 -->
-        
+      <div class="container-formulario border m-2 p-2 mx-auto col-sm-10 " id="seccion-cuatro">
+        <!-- seccion 4 Formulario -->       
         <h1>Formulario de registro</h1>
         <form id="formulario">
           <div class="contenedor">
