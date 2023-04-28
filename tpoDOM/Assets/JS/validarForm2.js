@@ -437,6 +437,7 @@ function agregarCompetidor() {
     localStorage.setItem('competidores', JSON.stringify(competidores));
     //se llama a la funcion que imprime competidores para actualizar la lista
     darCompetidores(competidores)
+    tablaCompetidores(competidores)
   })
 
 }

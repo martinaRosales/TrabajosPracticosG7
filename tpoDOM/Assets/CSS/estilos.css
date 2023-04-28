@@ -1,6 +1,32 @@
 :root{
   --linea--border-relleno:#3498db;
   --linea--border-vacio:#e0e0e0;
+  --elementsBg: #e0e0e0;
+  --elementsHover: #adb5bd;
+  --text: #121416;
+  /* --bodyBg: #e4e0e0; */
+  --button: #adb5bd;
+  --buttonText: #121416;
+  --elementBorder: #121416;
+
+}
+
+.modoOscuro {
+  background-color: #121416;
+  color: #f5f0f6;
+  --elementsBg: #212529;
+  --elementsHover:  #495057;;
+  --text:  #e0e0e0;
+  --button: #f8f9fa;
+  --buttonText: #121416;
+  --elementBorder: #e0e0e0;
+
+  /* --textoResaltado: #ef3c23; */
+  /* --barra: #133063;
+  --boton: #ff3d51; */
+  /* --amarillo: #ffb520; */
+  /* --sombraBoton: rgb(0, 0, 0); */
+  /* --texto: whitesmoke; */
 }
 
 /* header {
@@ -8,12 +34,12 @@
     width: 100%;
   } */
   
-  .btn{
+  /* .btn{
     background-color: #e9431e;
-  }
+  } */
   
+
   footer {
-    background-color: #e9431e; 
     position:fixed;
     left:0px;
     bottom:0px;
@@ -110,9 +136,44 @@
     margin-top: 30px;
   }
 
+  #tarjetaCompetidor{
+    background-color: var(--tarjetaBg);
+    color: var(--tarjetaText);
+    border-color: var(--tarjetaText);
+  }
 
+  #filtro-select, #filtro-busqueda{
+    background-color: var(--tarjetaBg);
+    color: var(--text);
+    border-color: var(--elementBorder);
+    width:fit-content
+  }
+
+  #boton-select{
+    background-color: var(--elementsBg);
+    color: var(--text);
+    border-color: var(--elementBorder);
+    width: 50px;
+  }
   
-  
+  .filtros-tabla{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .table-row, .table-header{
+    border-color: var(--elementBorder);
+    background-color: var(--elementsBg);
+  }
+
+  .table-column,.table-header{
+    color:var(--text);
+  }
+
+
+  .table-row:hover{
+    background-color: var(--elementsHover);
+  }
   
   
   
