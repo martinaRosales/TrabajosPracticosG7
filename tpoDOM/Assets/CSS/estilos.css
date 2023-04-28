@@ -1,6 +1,21 @@
 :root{
   --linea--border-relleno:#3498db;
   --linea--border-vacio:#e0e0e0;
+  --tarjetaBg: #e0e0e0;
+  --tarjetaText: #121416;
+}
+
+.modoOscuro {
+  background-color: #121416;
+  color: #f5f0f6;
+  --tarjetaBg: #121416;
+  --tarjetaText:  #e0e0e0;
+  /* --textoResaltado: #ef3c23; */
+  /* --barra: #133063;
+  --boton: #ff3d51; */
+  /* --amarillo: #ffb520; */
+  /* --sombraBoton: rgb(0, 0, 0); */
+  /* --texto: whitesmoke; */
 }
 
 /* header {
@@ -8,12 +23,11 @@
     width: 100%;
   } */
   
-  .btn{
+  /* .btn{
     background-color: #e9431e;
-  }
+  } */
   
   footer {
-    background-color: #e9431e; 
     position:fixed;
     left:0px;
     bottom:0px;
@@ -110,6 +124,11 @@
     margin-top: 30px;
   }
 
+  #tarjetaCompetidor{
+    background-color: var(--tarjetaBg);
+    color: var(--tarjetaText);
+    border-color: var(--tarjetaText);
+  }
 
   
   

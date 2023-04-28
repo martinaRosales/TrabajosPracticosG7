@@ -42,7 +42,7 @@ arrayCompetidores[2] =
 
 //Método que genera una tarjeta HTML en un string y la retorna para imprimirla en pantalla
 function darPerfil(competidor){
-  let competidorInfo = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="competidor">'+
+  let competidorInfo = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="tarjetaCompetidor">'+
   '<div class="card-body">'+
     '<h5 class="card-title" id="nombreCompetidor">'+competidor.getNombre()+' '+ competidor.getApellido() +'</h5>'+
     '<p class="card-text">'+

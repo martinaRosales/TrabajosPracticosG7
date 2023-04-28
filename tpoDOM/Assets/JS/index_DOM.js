@@ -12,6 +12,7 @@ import {
 } from './validarForm2.js'
 import '../../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js'
 import'./competidor.js'
+import './cambioTema.js'
 
 export {
     validarApellido, 
