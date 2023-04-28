@@ -69,20 +69,20 @@
             <!-- <label for="filtro-tabla" class="col-sm-4 col-form-label"
         >Filtro de búsqueda</label
       > -->
-            <div>
+            <div class="filtros-tabla col-lg-4 mb-3">
                 <!-- Filtro de busqueda para la tabla -->
-                <select id="filtro-select" class="form-select col-md-2" aria-label="Default select example">
+                <select id="filtro-select" class="form-select" aria-label="Default select example">
                     <option selected value="default">Buscar según</option>
                     <option value="nombre">Nombre</option>
                     <option value="apellido">Apellido</option>
                     <option value="pais">País</option>
                 </select>
-                <input type="text" class="form-control" id="filtro-busqueda" name="filtro-busqueda" />
-                <button type="submit" id="boton-select">Go</button>
+                <input type="text" class="form-control ms-2" id="filtro-busqueda" name="filtro-busqueda" />
+                <button type="submit" class="btn ms-2" id="boton-select">Go</button>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
-                    <tr>
+                    <tr class="table-header">
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Género</th>

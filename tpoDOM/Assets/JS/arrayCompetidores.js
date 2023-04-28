@@ -66,14 +66,14 @@ function tablaCompetidores(competidores){
   let arrayRows = [];
  competidores.forEach(competidor =>{
    let classCompetidor = new Competidor(competidor);
-   let row = "<tr>"+
-   "<td>"+ classCompetidor.getNombre()+"</td>"+
-   "<td>"+ classCompetidor.getApellido()+"</td>"+
-   "<td>"+ classCompetidor.getGenero()+"</td>"+
-   "<td>"+ classCompetidor.getPais()+"</td>"+
-   "<td>"+ classCompetidor.getGraduacion()+"</td>"+
-   "<td>"+ classCompetidor.getClasificacion()+"</td>"+
-   "<td>"+ classCompetidor.getGal()+"</td>"
+   let row = "<tr class='table-row'>"+
+   "<td class='table-column'>"+ classCompetidor.getNombre()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getApellido()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getGenero()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getPais()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getGraduacion()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getClasificacion()+"</td>"+
+   "<td class='table-column'>"+ classCompetidor.getGal()+"</td>"
    +"</tr>";
    arrayRows.push(row);
    console.log()
