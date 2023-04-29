@@ -5,6 +5,8 @@ window.addEventListener('load', function () {
     //Se llama a la funcion que imprime los datos de los competidores en pantalla
     this.localStorage.setItem("Tema", 'claro')
     BOTON.innerHTML = 'Modo oscuro'
+    document.body.classList.remove('modoOscuro');
+
   });
 
 BOTON.addEventListener('click', ()=>{
