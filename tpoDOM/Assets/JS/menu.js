@@ -19,10 +19,10 @@ function botonMenu (){
     
 
 }
-
 botonMenu()
-export {botonMenu};
+  
 
+  
 
 
 

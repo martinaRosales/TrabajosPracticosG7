@@ -37,6 +37,7 @@
       </div>
       <nav class="navbar navbar-dark bg-dark"  id="menu-grande">
         <div class="container-fluid">
+            <h2 class="text-light">Taekwondo WTF</h2>
             <button id="botonMenu" 
               class="navbar-toggler ms-auto" 
               type="button" 
@@ -64,13 +65,16 @@
             <div class="il nav-item">
                 <a class="nav-link text-light" href="#seccion-cuatro">Seccion 4</a>
             </div>
+            <div class="il nav-item">
+                <button id="cambioTema2" type="button" class="btn bg-dark text-light"></button>
+            </div>
             </ul>
         </nav>
       </div>
       <nav class="navbar " id="menu-chico">
-        <div class="container-fluid">
-            <button id="botonMenu"
-              class="mobile-toggler  d-sm-none navbar-light " 
+        <div class="container">
+            <button
+              class="mobile-toggler  d-sm-none navbar-light rounded" 
               type="button" 
               data-bs-toggle="collapse"
               data-bs-target="#navbarToggleExternalContent2" 
@@ -105,7 +109,7 @@
     <!-- seccion 3 -->
     <!-- <label for="filtro-tabla" class="col-sm-4 col-form-label"
 >Filtro de búsqueda</label
--->
+> -->
     <div class="filtros-tabla col-lg-3 mb-3">
         <!-- Filtro de busqueda para la tabla -->
         <select id="filtro-select" class="form-select" aria-label="Default select example">
@@ -257,8 +261,8 @@
                         </div>
                     </div>
                 </div>
-                <button class="boton" id="anterior" disabled>Anterior</button>
-                <button class="boton" id="siguiente">Siguiente</button>
+                <button class="boton btn btn-secondary" id="anterior" disabled>Anterior</button>
+                <button class="boton btn btn-secondary" id="siguiente">Siguiente</button>
                 <button id='enviarBtn' type="button" class="btn text-light" style="display: none">
                     Enviar
                 </button>
@@ -277,9 +281,9 @@
 
         </div>
 
-        <div class="row" style="justify-content: center;" id="tarjetas">
+        <div class="row" style="justify-content: center;" id="tarjetas"> 
             <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
-        </div>
+        </div>  
     </div>
     <footer class="page-footer font-small position-relative bottom-0 bg-dark">
         <div class="container row mt-2">

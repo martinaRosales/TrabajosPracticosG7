@@ -28,10 +28,4 @@ export {
 } from './validarForm2.js'
 
  //exportar el menu
-import{
-    botonMenu,
-} from './menu.js';
-
-export {
-    botonMenu,
-}from './menu.js'
+import './menu.js';
