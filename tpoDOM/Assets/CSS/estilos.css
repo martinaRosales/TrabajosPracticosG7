@@ -1,10 +1,12 @@
 :root{
   --linea--border-relleno:#3498db;
   --linea--border-vacio:#e0e0e0;
+  --circleText: #999;
   --elementsBg: #e0e0e0;
   --elementsHover: #adb5bd;
   --text: #121416;
-  /* --bodyBg: #e4e0e0; */
+  --inputBg: white;
+  background-color: #f8f9fa;
   --button: #adb5bd;
   --buttonText: #121416;
   --elementBorder: #121416;
@@ -12,10 +14,14 @@
 }
 
 .modoOscuro {
+  --linea--border-relleno:#3498db;
+  --linea--border-vacio:#212529;
+  --circleText: #e0e0e0;
   background-color: #121416;
   color: #f5f0f6;
   --elementsBg: #212529;
-  --elementsHover:  #495057;;
+  --elementsHover:  #495057;
+  --inputBg:#212529;
   --text:  #e0e0e0;
   --button: #f8f9fa;
   --buttonText: #121416;
@@ -103,8 +109,8 @@
   }
 
   .circle{
-    background-color: #fff;
-    color: #999;
+    background-color: var(--elementsBg);
+    color:var(--circleText);
     border-radius: 50%;
     height: 30px;
     width: 30px;
@@ -131,10 +137,19 @@
     height: auto;
   }
   
+  .form-control{
+    background-color: var(--inputBg);
+    color:var(--text);
+  }
+
+  .form-control:focus, .form-control:selected{
+    background-color: var(--elementsHover) !important;
+  }
 
   .boton{
     margin-top: 30px;
   }
+
 
   #tarjetaCompetidor{
     background-color: var(--tarjetaBg);
