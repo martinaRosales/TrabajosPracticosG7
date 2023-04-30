@@ -142,7 +142,7 @@
     color:var(--text);
   }
 
-  .form-control:focus, .form-control:selected{
+  .form-control:focus{
     background-color: var(--elementsHover) !important;
   }
 
