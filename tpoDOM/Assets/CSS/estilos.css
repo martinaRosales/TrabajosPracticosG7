@@ -155,6 +155,7 @@
     background-color: var(--tarjetaBg);
     color: var(--tarjetaText);
     border-color: var(--tarjetaText);
+    height: max-content;
   }
 
   #filtro-select, #filtro-busqueda{
