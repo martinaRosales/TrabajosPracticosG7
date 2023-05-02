@@ -1,0 +1,23 @@
+{
+    "name": "juandelatorre/bienes-raices-poo_php_inicio",
+    "description": "Creando un proyecto con POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Grupo7",
+            "email": "ptorre@creativaweb.mx"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.5",
+        "phpmailer/phpmailer": "^6.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "./Models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./Controllers"
+            
+        }
+    }
+}
