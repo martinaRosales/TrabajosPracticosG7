@@ -7,7 +7,7 @@ use Controllers\ControladorCompetidor;
 
 $router = new Router();
 
-$router->get('/', [ControladorCompetidor::class, 'mostrar']);
+$router->get('/', [ControladorCompetidor::class, 'index']);
 // $router->get('/competidor/mostrar', [ControladorCompetidor::class, 'mostrar']);
 $router->get('/competidor/crear', [ControladorCompetidor::class, 'crear']);
 $router->post('/competidor/crear', [ControladorCompetidor::class, 'crear']);

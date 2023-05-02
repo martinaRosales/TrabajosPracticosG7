@@ -1,0 +1,14 @@
+
+  /*--- Video ---*/
+  #link {
+    display: none;
+  }
+ 
+ @media screen and (max-width: 576px) {
+  #link {
+    display: block;
+  }
+  #video{
+      display: none;
+  }
+}

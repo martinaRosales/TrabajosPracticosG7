@@ -1,0 +1,196 @@
+:root{
+  --linea--border-relleno:#3498db;
+  --linea--border-vacio:#e0e0e0;
+  --circleText: #999;
+  --elementsBg: #e0e0e0;
+  --elementsHover: #adb5bd;
+  --text: #121416;
+  --inputBg: white;
+  background-color: #f8f9fa;
+  --button: #adb5bd;
+  --buttonText: #121416;
+  --elementBorder: #121416;
+
+}
+
+.modoOscuro {
+  --linea--border-relleno:#3498db;
+  --linea--border-vacio:#212529;
+  --circleText: #e0e0e0;
+  background-color: #121416;
+  color: #f5f0f6;
+  --elementsBg: #212529;
+  --elementsHover:  #495057;
+  --inputBg:#212529;
+  --text:  #e0e0e0;
+  --button: #f8f9fa;
+  --buttonText: #121416;
+  --elementBorder: #e0e0e0;
+
+  /* --textoResaltado: #ef3c23; */
+  /* --barra: #133063;
+  --boton: #ff3d51; */
+  /* --amarillo: #ffb520; */
+  /* --sombraBoton: rgb(0, 0, 0); */
+  /* --texto: whitesmoke; */
+}
+
+/* header {
+    background-color: #e9431e;
+    width: 100%;
+  } */
+  
+  /* .btn{
+    background-color: #e9431e;
+  } */
+  
+
+  footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:fit-content;
+    width:100%;
+  }
+  
+  /* #navbar{
+    background-color: #e9431e;
+    color: white;
+  }
+
+  #dropdown {
+    background-color: #e9431e;
+  }
+
+  #navbarHeader a:hover {
+    background-color: #ee4d29;
+  } */
+  
+
+  /* BARRA PROGRESO FORMULARIO */
+
+  .contenedor{
+    text-align: center;
+  }
+
+  .progreso-contenedor{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+  }
+
+  .progreso-contenedor::before{
+    content: '';
+    background-color: var(--linea--border-vacio);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
+    transition:  0.4s ease;
+  }
+
+  
+  .progreso{
+    background-color: var(--linea--border-relleno);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index: -1;
+    transition:  0.8s ease;
+  }
+
+  .circle{
+    background-color: var(--elementsBg);
+    color:var(--circleText);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--linea--border-vacio);
+    transition: 0.4s ease;
+  }
+
+  .circle.active{
+    border-color: #3498db;
+  }
+
+  .formulario{
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: all 0.5s ease;
+  }
+  .formulario.active{
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
+  
+  .form-control{
+    background-color: var(--inputBg);
+    color:var(--text);
+  }
+
+  .form-control:focus{
+    background-color: var(--elementsHover) !important;
+  }
+
+  .boton{
+    margin-top: 30px;
+  }
+
+
+  #tarjetaCompetidor{
+    background-color: var(--tarjetaBg);
+    color: var(--tarjetaText);
+    border-color: var(--tarjetaText);
+    height: max-content;
+  }
+
+  #filtro-select, #filtro-busqueda{
+    background-color: var(--tarjetaBg);
+    color: var(--text);
+    border-color: var(--elementBorder);
+    width:fit-content
+  }
+
+  #boton-select{
+    background-color: var(--elementsBg);
+    color: var(--text);
+    border-color: var(--elementBorder);
+    width: 50px;
+  }
+  
+  .filtros-tabla{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
+
+  .table-row, .table-header{
+    border-color: var(--elementBorder);
+    background-color: var(--elementsBg);
+  }
+
+  .table-column,.table-header{
+    color:var(--text);
+  }
+
+
+  .table-row:hover{
+    background-color: var(--elementsHover);
+  }
+  
+  
+  
+  
