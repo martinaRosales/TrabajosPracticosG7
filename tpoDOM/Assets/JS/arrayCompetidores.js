@@ -39,6 +39,162 @@ arrayCompetidores[2] =
   email: "marii.gon@gmail.com",
   genero: "femenino"
 };
+arrayCompetidores[3] =
+{
+  gal: "ADF2356941",
+  apellido: "Drake",
+  nombre: "Hanna",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Ucrania",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[4] =
+{
+  gal: "ADF2356941",
+  apellido: "Steedman",
+  nombre: "Robin",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Perú",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "masculino"
+};
+arrayCompetidores[5] =
+{
+  gal: "ADF2356941",
+  apellido: "Walbrook",
+  nombre: "Ardelis",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Estados Unidos",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[6] =
+{
+  gal: "ADF2356941",
+  apellido: "Dunckley",
+  nombre: "Bambi",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Canada",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[7] =
+{
+  gal: "ADF2356941",
+  apellido: "Gonzales",
+  nombre: "Pablo",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Argentina",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "masculino"
+};
+arrayCompetidores[8] =
+{
+  gal: "ADF2356941",
+  apellido: "Ramirez",
+  nombre: "Mariana",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Argentina",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[9] =
+{
+  gal: "ADF2356941",
+  apellido: "Gonzales",
+  nombre: "Pedro",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Argentina",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "masculino"
+};
+arrayCompetidores[10] =
+{
+  gal: "ADF2356941",
+  apellido: "Perez",
+  nombre: "Mariana",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Argentina",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[11] =
+{
+  gal: "ADF2356941",
+  apellido: "Maderos",
+  nombre: "Sofía",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Colombia",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
+arrayCompetidores[12] =
+{
+  gal: "ADF2356941",
+  apellido: "Puentes",
+  nombre: "Lorenzo",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Ecuador",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "masculino"
+};
+arrayCompetidores[13] =
+{
+  gal: "ADF2356941",
+  apellido: "Marques",
+  nombre: "Heber",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Venezuela",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "masculino"
+};
+arrayCompetidores[14] =
+{
+  gal: "ADF2356941",
+  apellido: "Gomez",
+  nombre: "Laura",
+  du: "46558712",
+  fechaNac: "2005-12-02",
+  pais: "Paraguay",
+  graduacion: "1ro GUP",
+  clasificacionGenNac: 315,
+  email: "marii.gon@gmail.com",
+  genero: "femenino"
+};
 
 //Método que genera una tarjeta HTML en un string y la retorna para imprimirla en pantalla
 function darPerfil(competidor){
@@ -151,7 +307,5 @@ function darCompetidores(competidores) {
   tarjetas.innerHTML = arrayTarjetas;
 
 }
-
-
 
 
