@@ -39,7 +39,7 @@
 
         </div>
         <div class="table-responsive">
-            <table class="table table-hover">
+            <table class="table table-hover" id="tabla-competidores">
                 <thead>
                     <tr class="table-header">
                         <th>Nombre</th>
@@ -58,10 +58,7 @@
         </div>
 
     </div>
-    <div id='tablaMostrar'>
-        <?php include __DIR__ . '/competidor/mostrar.php' ?>
-    </div>
-    <br>
+
     <div class="container-formulario border m-2 p-2 mx-auto col-sm-10" id="seccion-cuatro">
         <!-- seccion 4 -->
         <?php include __DIR__ . '/competidor/crear.php' ?>

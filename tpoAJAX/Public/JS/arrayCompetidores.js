@@ -1,4 +1,5 @@
 import {Competidor} from './competidor.js'
+import './pagination.js'
 //se crea el array competidores
 let arrayCompetidores = new Array()
 arrayCompetidores[0] =
@@ -217,43 +218,42 @@ function darPerfil(competidor){
 return competidorInfo;     
 }  
 
-function tablaCompetidores(competidores){
-  let table = document.getElementById("table-body")
-  // console.log(table)
-  let arrayRows = [];
- competidores.forEach(competidor =>{
-   let classCompetidor = new Competidor(competidor);
-   let row = "<tr class='table-row'>"+
-   "<td class='table-column'>"+ classCompetidor.getNombre()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getApellido()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getGenero()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getPais()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getGraduacion()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getClasificacion()+"</td>"+
-   "<td class='table-column'>"+ classCompetidor.getGal()+"</td>"
-   +"</tr>";
-   arrayRows.push(row);
-  //  console.log()
- })
-  // console.log(arrayRows)
-  table.innerHTML = arrayRows
-}
+// function tablaCompetidores(competidores){
+//   let table = document.getElementById("table-body")
+//   // console.log(table)
+//   let arrayRows = [];
+//  competidores.forEach(competidor =>{
+//    let classCompetidor = new Competidor(competidor);
+//    let row = "<tr class='table-row'>"+
+//    "<td class='table-column'>"+ classCompetidor.getNombre()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getApellido()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getGenero()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getPais()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getGraduacion()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getClasificacion()+"</td>"+
+//    "<td class='table-column'>"+ classCompetidor.getGal()+"</td>"
+//    +"</tr>";
+//    arrayRows.push(row);
+//   //  console.log()
+//  })
+//   // console.log(arrayRows)
+//   table.innerHTML = arrayRows
+// }
 
 const botonSelect = document.getElementById("boton-select")
 
 botonSelect.addEventListener('click', ()=>{
-  competidoresActuales = localStorage.getItem('competidores');
-arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidoresActuales));
+let arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidores));
 tablaCompetidores(arrayCompetidoresFiltrados)
 
 });
 
 function filterByParameter(competidores){
-filtro = {
+let filtro = {
   tipo: document.getElementById("filtro-select").value,
   valor: document.getElementById("filtro-busqueda").value
 }
-competidoresFiltrados = []
+let competidoresFiltrados = []
 competidores.forEach(competidor=>{
   switch (filtro.tipo){
     case "default":
@@ -285,30 +285,59 @@ competidores.forEach(competidor=>{
 return competidoresFiltrados;
 }
 
+
+
+function tablaCompetidores(competidores){
+  $('#tabla-competidores').pagination({
+    dataSource: competidores,
+    pageSize: 5,
+    showSizeChanger: true,
+    callback: function(data, pagination) {
+      console.log(competidores)
+      $('#table-body').html("");
+      let arrayRows = [];
+      $.each(data, function(index, competidor){
+        let row = "<tr class='table-row'>"+
+        "<td class='table-column'>"+competidor.nombre+"</td>"+
+        "<td class='table-column'>"+ competidor.apellido+"</td>"+
+        "<td class='table-column'>"+ competidor.genero+"</td>"+
+        "<td class='table-column'>"+ competidor.pais+"</td>"+
+        "<td class='table-column'>"+competidor.graduacion+"</td>"+
+        "<td class='table-column'>"+ competidor.clasificacionGenNac+"</td>"+
+        "<td class='table-column'>"+ competidor.gal+"</td>"
+        +"</tr>";
+        arrayRows.push(row);
+      })
+      let table = document.getElementById("table-body")
+      table.innerHTML = arrayRows
+    }
+  })
+  
+}
 //Se guarda el array en un localStorage
 localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
 
 window.addEventListener('load', function () {
   //Se llama a la funcion que imprime los datos de los competidores en pantalla
-  darCompetidores(arrayCompetidores)
-  tablaCompetidores(arrayCompetidores)
+  let competidores = JSON.parse(localStorage.getItem('competidores'))
+  // darCompetidores(arrayCompetidores)
+   tablaCompetidores(competidores)
 });
 
 //Se crea una función que crea intancias de la clase competidor llama al método que retorna una tarjeta html en string
-function darCompetidores(competidores) {
-  let tarjetas = document.getElementById("tarjetas");
-  let arrayTarjetas = new Array();
-  competidores.forEach(competidor => {
-    // console.log(competidor)
-    //se crea una instancia de la clase competidor
-    let classCompetidor = new Competidor(competidor);
-    let tarjeta = darPerfil(classCompetidor);
-    arrayTarjetas.push(tarjeta);
-  });
-  //se imprime en pantalla el array creado con los datos
-  tarjetas.innerHTML = arrayTarjetas;
+// function darCompetidores(competidores) {
+//   let tarjetas = document.getElementById("tarjetas");
+//   let arrayTarjetas = new Array();
+//   competidores.forEach(competidor => {
+//     // console.log(competidor)
+//     //se crea una instancia de la clase competidor
+//     let classCompetidor = new Competidor(competidor);
+//     let tarjeta = darPerfil(classCompetidor);
+//     arrayTarjetas.push(tarjeta);
+//   });
+//   //se imprime en pantalla el array creado con los datos
+//   tarjetas.innerHTML = arrayTarjetas;
 
-}
+// }
 
 
-export {darCompetidores, tablaCompetidores}

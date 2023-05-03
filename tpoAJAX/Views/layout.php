@@ -10,6 +10,7 @@
      <link rel="stylesheet" href="/css/estilos.css" />
     <link rel="stylesheet" href="/css/video.css">
     <link rel="stylesheet" href="/css/menu.css"> 
+    <link rel="stylesheet" href="/css/pagination.css"/>
     <title>Document</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
