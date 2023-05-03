@@ -202,18 +202,23 @@ arrayCompetidores[14] =
 
 //Se guarda el array en un localStorage
 localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
+const competidores = JSON.parse(localStorage.getItem('competidores'))
+
 
 window.addEventListener('load', function () {
   //Se llama a la funcion que imprime los datos de los competidores en pantalla
-  let competidores = JSON.parse(localStorage.getItem('competidores'))
+
    tablaCompetidores(competidores)
 });
 
 
 const botonSelect = document.getElementById("boton-select")
 
+
+
 botonSelect.addEventListener('click', ()=>{
-let arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidores));
+  let arrayCompetidoresFiltrados = new Array()
+arrayCompetidoresFiltrados = filterByParameter(competidores);
 tablaCompetidores(arrayCompetidoresFiltrados)
 
 });
@@ -286,7 +291,7 @@ return competidoresFiltrados;
 
 
 
-
+export {tablaCompetidores, filterByParameter}
 
 
 
