@@ -150,10 +150,10 @@
     margin-top: 30px;
   }
 
-  #envio{
+ /*  #envio{
     background-color: var(--buttonText);
     color:var(--text)
-  }
+  } */
 
   #tarjetaCompetidor{
     background-color: var(--tarjetaBg);
