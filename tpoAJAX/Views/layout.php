@@ -34,6 +34,12 @@
             <div class="col nav-item">
                 <a class="nav-link text-light" href="#seccion-cuatro">Seccion 4</a>
             </div>
+            <div class="col nav-item">
+                <a class="nav-link text-light" href="#">Seccion 5</a>
+            </div>
+            <div class="col nav-item">
+                <a class="nav-link text-light" href="#seccion-seis">Seccion 6</a>
+            </div>
             <div class="col nav-item"><button id="cambioTema" type="button" class="btn bg-dark text-light"></button></div>
         </nav>
       </div>
@@ -66,6 +72,12 @@
             </div>
             <div class="il nav-item">
                 <a class="nav-link text-light" href="#seccion-cuatro">Seccion 4</a>
+            </div>
+            <div class="il nav-item">
+                <a class="nav-link text-light" href="#">Seccion 5</a>
+            </div>
+            <div class="il nav-item">
+                <a class="nav-link text-light" href="#seccion-seis">Seccion 6</a>
             </div>
             <div class="il nav-item">
                 <button id="cambioTema2" type="button" class="btn bg-dark text-light"></button>
