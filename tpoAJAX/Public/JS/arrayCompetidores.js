@@ -198,47 +198,17 @@ arrayCompetidores[14] =
   genero: "femenino"
 };
 
-//Método que genera una tarjeta HTML en un string y la retorna para imprimirla en pantalla
-function darPerfil(competidor){
-  let competidorInfo = '<div class="card mx-2 mt-1 mb-2" style="width: 18rem; height: fit-content;" id="tarjetaCompetidor">'+
-  '<div class="card-body">'+
-    '<h5 class="card-title" id="nombreCompetidor">'+competidor.getNombre()+' '+ competidor.getApellido() +'</h5>'+
-    '<p class="card-text">'+
-      '<b>GAL: </b>'+competidor.getGal()+'<br>'+
-      '<b>DU: </b> '+competidor.getDu()+'<br>'+
-      '<b>Fecha de Nacimiento: </b> '+ competidor.getFechaNac()+'<br>'+
-      '<b>Pais de origen: </b> '+ competidor.getPais()+'<br>'+
-      '<b>Graduacion: </b> '+ competidor.getGraduacion()+'<br>'+
-      '<b>Clasificación nacional: </b> '+ competidor.getClasificacion() +'<br>'+
-      '<b>Mail: </b> '+ competidor.getEmail() +'<br>'+
-      '<b>Género: </b>'+ competidor.getGenero() +
-    '</p>'+
-  '</div>'+
-'</div>';
-return competidorInfo;     
-}  
 
-// function tablaCompetidores(competidores){
-//   let table = document.getElementById("table-body")
-//   // console.log(table)
-//   let arrayRows = [];
-//  competidores.forEach(competidor =>{
-//    let classCompetidor = new Competidor(competidor);
-//    let row = "<tr class='table-row'>"+
-//    "<td class='table-column'>"+ classCompetidor.getNombre()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getApellido()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getGenero()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getPais()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getGraduacion()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getClasificacion()+"</td>"+
-//    "<td class='table-column'>"+ classCompetidor.getGal()+"</td>"
-//    +"</tr>";
-//    arrayRows.push(row);
-//   //  console.log()
-//  })
-//   // console.log(arrayRows)
-//   table.innerHTML = arrayRows
-// }
+
+//Se guarda el array en un localStorage
+localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
+
+window.addEventListener('load', function () {
+  //Se llama a la funcion que imprime los datos de los competidores en pantalla
+  let competidores = JSON.parse(localStorage.getItem('competidores'))
+   tablaCompetidores(competidores)
+});
+
 
 const botonSelect = document.getElementById("boton-select")
 
@@ -247,6 +217,35 @@ let arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidores));
 tablaCompetidores(arrayCompetidoresFiltrados)
 
 });
+
+
+function tablaCompetidores(competidores){
+  $('#tabla-competidores').pagination({
+    dataSource: competidores,
+    pageSize: 5,
+    showSizeChanger: true,
+    callback: function(data, pagination) {
+      console.log(competidores)
+      $('#table-body').html("");
+      let arrayRows = [];
+      $.each(data, function(index, competidor){
+        let row = "<tr class='table-row'>"+
+        "<td class='table-column'>"+competidor.nombre+"</td>"+
+        "<td class='table-column'>"+ competidor.apellido+"</td>"+
+        "<td class='table-column'>"+ competidor.genero+"</td>"+
+        "<td class='table-column'>"+ competidor.pais+"</td>"+
+        "<td class='table-column'>"+competidor.graduacion+"</td>"+
+        "<td class='table-column'>"+ competidor.clasificacionGenNac+"</td>"+
+        "<td class='table-column'>"+ competidor.gal+"</td>"
+        +"</tr>";
+        arrayRows.push(row);
+      })
+      let table = document.getElementById("table-body")
+      table.innerHTML = arrayRows
+    }
+  })
+  
+}
 
 function filterByParameter(competidores){
 let filtro = {
@@ -287,57 +286,7 @@ return competidoresFiltrados;
 
 
 
-function tablaCompetidores(competidores){
-  $('#tabla-competidores').pagination({
-    dataSource: competidores,
-    pageSize: 5,
-    showSizeChanger: true,
-    callback: function(data, pagination) {
-      console.log(competidores)
-      $('#table-body').html("");
-      let arrayRows = [];
-      $.each(data, function(index, competidor){
-        let row = "<tr class='table-row'>"+
-        "<td class='table-column'>"+competidor.nombre+"</td>"+
-        "<td class='table-column'>"+ competidor.apellido+"</td>"+
-        "<td class='table-column'>"+ competidor.genero+"</td>"+
-        "<td class='table-column'>"+ competidor.pais+"</td>"+
-        "<td class='table-column'>"+competidor.graduacion+"</td>"+
-        "<td class='table-column'>"+ competidor.clasificacionGenNac+"</td>"+
-        "<td class='table-column'>"+ competidor.gal+"</td>"
-        +"</tr>";
-        arrayRows.push(row);
-      })
-      let table = document.getElementById("table-body")
-      table.innerHTML = arrayRows
-    }
-  })
-  
-}
-//Se guarda el array en un localStorage
-localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
 
-window.addEventListener('load', function () {
-  //Se llama a la funcion que imprime los datos de los competidores en pantalla
-  let competidores = JSON.parse(localStorage.getItem('competidores'))
-  // darCompetidores(arrayCompetidores)
-   tablaCompetidores(competidores)
-});
 
-//Se crea una función que crea intancias de la clase competidor llama al método que retorna una tarjeta html en string
-// function darCompetidores(competidores) {
-//   let tarjetas = document.getElementById("tarjetas");
-//   let arrayTarjetas = new Array();
-//   competidores.forEach(competidor => {
-//     // console.log(competidor)
-//     //se crea una instancia de la clase competidor
-//     let classCompetidor = new Competidor(competidor);
-//     let tarjeta = darPerfil(classCompetidor);
-//     arrayTarjetas.push(tarjeta);
-//   });
-//   //se imprime en pantalla el array creado con los datos
-//   tarjetas.innerHTML = arrayTarjetas;
-
-// }
 
 

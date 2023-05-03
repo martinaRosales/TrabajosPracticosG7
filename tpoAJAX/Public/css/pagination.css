@@ -340,9 +340,7 @@
   .paginationjs.paginationjs-theme-red .paginationjs-pages li > a {
     color: #c9302c;
   }
-  .paginationjs.paginationjs-theme-red .paginationjs-pages li > a:hover {
-   
-  }
+
   .paginationjs.paginationjs-theme-red .paginationjs-pages li.active > a {
     background: #c9302c;
     color: #fff;
