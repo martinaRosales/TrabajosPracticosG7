@@ -31,23 +31,23 @@ const messages = {
 
 
 //json de paises permitidos
-const paisesPermitidos = [
-  { "paisPermitido": "rusia" },
-  { "paisPermitido": "ucrania" },
-  { "paisPermitido": "estados unidos" },
-  { "paisPermitido": "canadá" },
-  { "paisPermitido": "perú" },
-  { "paisPermitido": "chile" },
-  { "paisPermitido": "argentina" },
-  { "paisPermitido": "méxico" },
-  { "paisPermitido": "brasil" },
-  { "paisPermitido": "bolivia" },
-  { "paisPermitido": "ecuador" },
-  { "paisPermitido": "venezuela" },
-  { "paisPermitido": "colombia" },
-  { "paisPermitido": "paraguay" },
-  { "paisPermitido": "uruguay" }
-]
+// const paisesPermitidos = [
+//   { "paisPermitido": "rusia" },
+//   { "paisPermitido": "ucrania" },
+//   { "paisPermitido": "estados unidos" },
+//   { "paisPermitido": "canadá" },
+//   { "paisPermitido": "perú" },
+//   { "paisPermitido": "chile" },
+//   { "paisPermitido": "argentina" },
+//   { "paisPermitido": "méxico" },
+//   { "paisPermitido": "brasil" },
+//   { "paisPermitido": "bolivia" },
+//   { "paisPermitido": "ecuador" },
+//   { "paisPermitido": "venezuela" },
+//   { "paisPermitido": "colombia" },
+//   { "paisPermitido": "paraguay" },
+//   { "paisPermitido": "uruguay" }
+// ]
 
 /* $(function () {
   let paisesPermitidos = [
@@ -416,8 +416,10 @@ clasificacion.addEventListener('blur', function () {
 
 function validarCampos() {
   const btn = document.getElementById('enviarBtn');
-  if (nombreValido && apellidoValido && duValido && edadValida && paisValido && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
+  if (nombreValido && apellidoValido && duValido && edadValida  && emailValido && generoValido && galValido && graduacionValido && clasificacionValido) {
     btn.style.display = 'block';
+    btn.style.background = 'green';
+    btn.style.width = 'auto';
     agregarCompetidor();
   } else {
     btn.style.display = 'none';

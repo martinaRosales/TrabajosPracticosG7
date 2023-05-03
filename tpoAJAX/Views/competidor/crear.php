@@ -78,8 +78,8 @@
             <label for="gal" class="col-sm-4 col-form-label">GAL</label>
             <div class="col-sm-8">
               <input type="text" class="form-control" id="gal" name="gal" placeholder="Ej: ABC1234567" />
-              <span id="gal-error" style="display: none">El GAL debe tener 9 caracteres, los primeros 3 letras y los
-                restantes números (Ej: ABC1234567)</span>
+              <!-- <span id="gal-error" style="display: none">El GAL debe tener 9 caracteres, los primeros 3 letras y los
+                restantes números (Ej: ABC1234567)</span> -->
             </div>
           </div>
           <div class="row mb-3">
@@ -118,9 +118,7 @@
         </div>
         <button class="boton btn btn-secondary" id="anterior" disabled>Anterior</button>
         <button class="boton btn btn-secondary" id="siguiente">Siguiente</button>
-        <button id='enviarBtn' type="submit" class="btn btn-success" style="display: none">
-          Enviar
-        </button>
+        <button id='enviarBtn' type="submit" class="btn btn-success" style="display: none">Enviar</button>
       </form>
       <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
