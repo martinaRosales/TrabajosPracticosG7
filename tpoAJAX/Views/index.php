@@ -199,7 +199,7 @@
       </div>
                 <button type="submit" class="btn text-light">Enviar</button>
             </form> -->
-            <div id="envio" class="btn alert alert-danger mt-3" style="display:none;" role="alert"></div>
+            <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
 
 
         </div>
