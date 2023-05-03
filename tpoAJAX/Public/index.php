@@ -10,6 +10,7 @@ $router = new Router();
 
 $router->get('/', [ControladorCompetidor::class, 'index']);
 $router->post('/', [ControladorCompetidor::class, 'index']);
+$router->get('/competidor/tabla', [ControladorCompetidor::class, 'mostrarCompetidores']);
 // $router->get('/competidor/mostrar', [ControladorCompetidor::class, 'mostrar']);
 $router->get('/competidor/crear', [ControladorCompetidor::class, 'crear']);
 $router->post('/competidor/crear', [ControladorCompetidor::class, 'crear']);
