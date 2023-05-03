@@ -88,7 +88,7 @@ function validarCampo(valor, campo) {
 function validarGal(gal) {
   const regexGal = /^[A-Z]{3}\d{7}$/;
   const galInput = document.querySelector("#gal");
-  console.log(gal);
+  // console.log(gal);
   if (!regexGal.test(gal)) {
     envio.textContent = messages.gal;
     envio.style.display = "block";
@@ -424,7 +424,11 @@ function validarCampos() {
   }
 }
 
+ import { 
+    darCompetidores, tablaCompetidores
+ } from './arrayCompetidores.js'
 
+ 
 function agregarCompetidor() {
   const btn = document.getElementById('enviarBtn');
   btn.addEventListener('click', () => {
@@ -448,9 +452,6 @@ form.addEventListener("submit", (e) => {
   if (validarFormulario()) {
     alert("Formulario enviado exitosamente");
     form.reset();
-
-    
-
 
     //seleccionar todos los input y limpiar los bordes 
     const inputs = form.querySelectorAll('input');

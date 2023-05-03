@@ -173,7 +173,7 @@
     background-color: var(--elementsBg);
     color: var(--text);
     border-color: var(--elementBorder);
-    width: 50px;
+    width: auto;
   }
   
   .filtros-tabla{

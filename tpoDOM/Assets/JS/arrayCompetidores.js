@@ -1,4 +1,4 @@
-// import {Competidor} from './competidor.js'
+import {Competidor} from './competidor.js'
 //se crea el array competidores
 let arrayCompetidores = new Array()
 arrayCompetidores[0] =
@@ -242,18 +242,18 @@ function tablaCompetidores(competidores){
 const botonSelect = document.getElementById("boton-select")
 
 botonSelect.addEventListener('click', ()=>{
-  competidoresActuales = localStorage.getItem('competidores');
-arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidoresActuales));
+ let competidoresActuales = localStorage.getItem('competidores');
+let arrayCompetidoresFiltrados = filterByParameter(JSON.parse(competidoresActuales));
 tablaCompetidores(arrayCompetidoresFiltrados)
 
 });
 
 function filterByParameter(competidores){
-filtro = {
+let filtro = {
   tipo: document.getElementById("filtro-select").value,
   valor: document.getElementById("filtro-busqueda").value
 }
-competidoresFiltrados = []
+const competidoresFiltrados = []
 competidores.forEach(competidor=>{
   switch (filtro.tipo){
     case "default":
@@ -310,4 +310,4 @@ function darCompetidores(competidores) {
 
 }
 
-// export {darCompetidores, tablaCompetidores}
+export {darCompetidores, tablaCompetidores}

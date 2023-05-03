@@ -33,16 +33,16 @@ import './timer.js'
 import './arrayCompetidores.js'
 import './competidor.js'
 
-// import{Competidor} from './competidor.js'
-// export {Competidor} from './competidor.js'
+// import {
+//     Competidor
+// } from './competidor.js'
+// export {
+//     Competidor
+// } from './competidor.js'
 
-//  import { 
-//     tablaCompetidores,
-//      darCompetidores
-//  } from './arrayCompetidores.js'
+ import { 
+    darCompetidores, tablaCompetidores
+ }from './arrayCompetidores.js'
 
-//  export{
-//      tablaCompetidores,
-//      darCompetidores
-//  } from './arrayCompetidores.js'
+ export {darCompetidores, tablaCompetidores} from './arrayCompetidores.js'
 
