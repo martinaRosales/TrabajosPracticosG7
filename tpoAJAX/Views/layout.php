@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../Public/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="Assets/css/estilos.css" />
-    <link rel="stylesheet" href="Assets/css/video.css">
-    <link rel="stylesheet" href="Assets/css/menu.css">
+    <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/video.css">
+    <link rel="stylesheet" href="/css/menu.css"> 
     <title>Document</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -100,11 +100,10 @@
         </div>
     </footer>
 
-    <script src="../Public/JS/barraProgreso.js"></script>
-    <script type="module" src="../Public/JS/index_DOM.js"></script>
+    <!-- <script src="../Public/JS/barraProgreso.js"></script>
     <script src="../Public/JS/arrayCompetidores.js"></script>
-    <script src="../Public/JS/competidor.js"></script>
-
+    <script src="../Public/JS/competidor.js"></script> -->
+    <script type="module" src="/JS/index_DOM.js"></script>
 </body>
 
 </html>

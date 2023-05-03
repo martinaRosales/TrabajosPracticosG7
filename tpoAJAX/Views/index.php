@@ -62,7 +62,7 @@
    
 </div>
 <br>
-        <div class="container-formulario border m-2 p-2 mx-auto col-sm-10" id="seccion-cuatro">
+<div class="container-formulario border m-2 p-2 mx-auto col-sm-10" id="seccion-cuatro">
             <!-- seccion 4 -->
 
             <h1>Formulario de registro</h1>
