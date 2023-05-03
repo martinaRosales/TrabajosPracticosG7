@@ -16,7 +16,7 @@
         <?php echo $error; ?>
       </div>
     <?php endforeach; ?>
-    
+
     <div class="container-formulario border m-2 p-2 mx-auto col-sm-10">
       <h1>Formulario de registro</h1>
       <form id="formulario" method="POST">
@@ -132,7 +132,7 @@
         </div>
         <button class="boton" id="anterior" disabled>Anterior</button>
         <button class="boton" id="siguiente">Siguiente</button>
-        <button id='enviarBtn' type="submit" class="btn text-light" style="display: none">
+        <button id='enviarBtn' type="submit" class="btn btn-success" style="display: none">
           Enviar
         </button>
       </form>
@@ -151,4 +151,15 @@
     <div class="row" style="justify-content: center;" id="tarjetas">
       <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
     </div>
-  </div>
+    </div>
+
+  <script>
+    $(function() {
+      let paisesPermitidos = 
+        <?php echo json_encode(array_column($paises, 'paisnombre')); ?>;
+      $("#pais").autocomplete({
+        source: paisesPermitidos
+      });
+    });
+
+  </script>

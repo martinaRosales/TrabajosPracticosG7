@@ -49,7 +49,7 @@ const paisesPermitidos = [
   { "paisPermitido": "uruguay" }
 ]
 
-$(function () {
+/* $(function () {
   let paisesPermitidos = [
     "Rusia",
     "Ucrania",
@@ -70,7 +70,7 @@ $(function () {
   $("#pais").autocomplete({
     source: paisesPermitidos
   });
-});
+}); */
 
 //funcion que comprueb que el campo no esté vacío
 function validarCampo(valor, campo) {
@@ -459,7 +459,7 @@ form.addEventListener("submit", (e) => {
 
 
 //peticion xml para la devolucion de los nombres de paises de la bd que es entregada en formato json
-const xhr = new XMLHttpRequest()
+/* const xhr = new XMLHttpRequest()
   xhr.addEventListener("readystatechange", (e) => {
     if (xhr.readyState !== 4) return;
     console.log(xhr);
@@ -477,8 +477,8 @@ const xhr = new XMLHttpRequest()
     } else {
         console.log("error");
     }
-});
+}); */
 
-xhr.open('GET', '../../Controllers/ControladorPais.php',true);
-xhr.send();
+/* xhr.open('GET', '../../Controllers/ControladorPais.php',true);
+xhr.send(); */
 
