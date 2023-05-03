@@ -1,4 +1,4 @@
-<a href="/competidor/crear" class="btn btn-success m-5">Nuevo Competidor</a>
+<!-- <a href="/competidor/crear" class="btn btn-success m-5">Nuevo Competidor</a> -->
 
 
 <div class="overflow-auto m-5">

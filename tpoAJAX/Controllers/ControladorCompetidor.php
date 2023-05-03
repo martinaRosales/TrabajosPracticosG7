@@ -10,9 +10,31 @@ class ControladorCompetidor
 {
     public static function index(Router $router)
     {
+        $pais = new Pais();
+        $paises = $pais::all();
         $competidor = Competidor::all();
+        $errores = Competidor::getErrores();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+            /** Crea una nueva instancia */
+            $competidor = new Competidor($_POST);
+
+            // Validar
+            $errores = $competidor->validar();
+            if (empty($errores)) {
+                // Guarda en la base de datos
+                $resultado = $competidor->guardar();
+
+                if ($resultado) {
+                    header('location: /');
+                }
+            }
+        }
 
         $router->render('index', [
+            'paises' => $paises,
+            'errores' => $errores,
             'competidor' => $competidor
         ]);
     }

@@ -1,23 +1,9 @@
-  <div class="container">
-    <div class="row" style="justify-content: center" id="seccion-uno">
-      <!-- seccion 1 -->
-    </div>
-
-    <div class="row" style="justify-content: center" id="seccion-uno">
-      <!-- seccion 2 -->
-    </div>
-
-    <div class="row" style="justify-content: center" id="seccion-uno">
-      <!-- seccion 3 -->
-    </div>
-
     <?php foreach ($errores as $error) : ?>
       <div class="alerta error">
         <?php echo $error; ?>
       </div>
     <?php endforeach; ?>
 
-    <div class="container-formulario border m-2 p-2 mx-auto col-sm-10">
       <h1>Formulario de registro</h1>
       <form id="formulario" method="POST">
         <div class="contenedor">
@@ -136,30 +122,14 @@
           Enviar
         </button>
       </form>
-      <!-- <div
-          id="envio"
-          class="alert alert-danger mt-3"
-          style="display: none"
-          role="alert"
-        ></div>
-      </div>
-                <button type="submit" class="btn text-light">Enviar</button>
-            </form> -->
       <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
-    </div>
-
-    <div class="row" style="justify-content: center;" id="tarjetas">
-      <!-- tarjetas de competidores, se generan con js y la función mostrar competidores -->
-    </div>
-    </div>
 
   <script>
     $(function() {
-      let paisesPermitidos = 
+      let paisesPermitidos =
         <?php echo json_encode(array_column($paises, 'paisnombre')); ?>;
       $("#pais").autocomplete({
         source: paisesPermitidos
       });
     });
-
   </script>
