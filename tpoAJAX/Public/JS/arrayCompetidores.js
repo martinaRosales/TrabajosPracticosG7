@@ -1,219 +1,23 @@
 import {Competidor} from './competidor.js'
 import './pagination.js'
-//se crea el array competidores
-let arrayCompetidores = new Array()
-arrayCompetidores[0] =
-{
-  gal: "ABS1234567",
-  apellido: "Perez",
-  nombre: "Roberto",
-  du: "32556987",
-  fechaNac: "1990-12-02",
-  pais: "Argentina",
-  graduacion: "1er DAN",
-  clasificacionGenNac: 200,
-  email: "perez.roberto@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[1] =
-{
-  gal: "AFG5566894",
-  apellido: "Ramirez",
-  nombre: "Noelia",
-  du: "16558974",
-  fechaNac: "1968-09-17",
-  pais: "Argentina",
-  graduacion: "4to GUP",
-  clasificacionGenNac: 825,
-  email: "noeliaramirez22@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[2] =
-{
-  gal: "ADF2356941",
-  apellido: "Gonzales",
-  nombre: "Mariana",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Argentina",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[3] =
-{
-  gal: "ADF2356941",
-  apellido: "Drake",
-  nombre: "Hanna",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Ucrania",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[4] =
-{
-  gal: "ADF2356941",
-  apellido: "Steedman",
-  nombre: "Robin",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Perú",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[5] =
-{
-  gal: "ADF2356941",
-  apellido: "Walbrook",
-  nombre: "Ardelis",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Estados Unidos",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[6] =
-{
-  gal: "ADF2356941",
-  apellido: "Dunckley",
-  nombre: "Bambi",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Canada",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[7] =
-{
-  gal: "ADF2356941",
-  apellido: "Gonzales",
-  nombre: "Pablo",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Argentina",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[8] =
-{
-  gal: "ADF2356941",
-  apellido: "Ramirez",
-  nombre: "Mariana",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Argentina",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[9] =
-{
-  gal: "ADF2356941",
-  apellido: "Gonzales",
-  nombre: "Pedro",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Argentina",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[10] =
-{
-  gal: "ADF2356941",
-  apellido: "Perez",
-  nombre: "Mariana",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Argentina",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[11] =
-{
-  gal: "ADF2356941",
-  apellido: "Maderos",
-  nombre: "Sofía",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Colombia",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-arrayCompetidores[12] =
-{
-  gal: "ADF2356941",
-  apellido: "Puentes",
-  nombre: "Lorenzo",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Ecuador",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[13] =
-{
-  gal: "ADF2356941",
-  apellido: "Marques",
-  nombre: "Heber",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Venezuela",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "masculino"
-};
-arrayCompetidores[14] =
-{
-  gal: "ADF2356941",
-  apellido: "Gomez",
-  nombre: "Laura",
-  du: "46558712",
-  fechaNac: "2005-12-02",
-  pais: "Paraguay",
-  graduacion: "1ro GUP",
-  clasificacionGenNac: 315,
-  email: "marii.gon@gmail.com",
-  genero: "femenino"
-};
-
-fetch('/competidor/tabla')
-  .then(response => response.json())
-  .then(data => {
-    // aquí puedes hacer lo que quieras con los datos obtenidos
-    console.log(data);
-  })
-  .catch(error => console.error(error));
-
-//Se guarda el array en un localStorage
-localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
-const competidores = JSON.parse(localStorage.getItem('competidores'))
 
 
+function generarArrayCompetidores() {
+  var competidoresObtenidos;
+  $.ajax({
+    url: '/competidor/tabla',
+    dataType: 'json',
+    async: false, // Hacer la solicitud AJAX de manera síncrona
+    success: function (response) {
+      competidoresObtenidos = response;
+    }
+  });
+  return competidoresObtenidos;
+}
+
+const competidores = generarArrayCompetidores()
 window.addEventListener('load', function () {
   //Se llama a la funcion que imprime los datos de los competidores en pantalla
-
    tablaCompetidores(competidores)
 });
 
