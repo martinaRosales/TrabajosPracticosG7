@@ -17,25 +17,6 @@ function obtenerImagenesAleatorias(imagenes, cantidad) {
     return imagenesAleatorias;
 }
 
-/* function agregarImagenesAlDom(imagenes, contenedor) {
-    imagenes.forEach(imagen => {
-        const figure = document.createElement('figure');
-        const img = document.createElement('img');
-        img.src = imagen.url;
-        img.alt = imagen.title;
-        const figcaption = document.createElement('figcaption');
-        figcaption.innerText = imagen.title;
-        figcaption.addEventListener('click', () => {
-            // Aquí puedes crear y mostrar un modal con la información adicional de la imagen
-            // Por ejemplo, puedes crear un modal con Bootstrap y agregar el contenido correspondiente
-            crearModal(imagen);
-        });
-        figure.appendChild(img);
-        figure.appendChild(figcaption);
-        contenedor.appendChild(figure);
-    });
-} */
-
 function agregarImagenesAlDom(imagenes, contenedor) {
     imagenes.forEach(imagen => {
         const figure = document.createElement('figure');
@@ -57,7 +38,7 @@ function agregarImagenesAlDom(imagenes, contenedor) {
 
 function crearModal(imagen) {
     const modalBody = document.querySelector('.modal-body');
-    const modalHeader = document.querySelector('#modal-header');
+    const modalHeader = document.querySelector('.modal-header');
     modalHeader.innerHTML = `
       <h2>ID: ${imagen.id}</h2>
     `;

@@ -219,7 +219,7 @@ return competidorInfo;
 
 function tablaCompetidores(competidores){
   let table = document.getElementById("table-body")
-  console.log(table)
+  // console.log(table)
   let arrayRows = [];
  competidores.forEach(competidor =>{
    let classCompetidor = new Competidor(competidor);
@@ -233,9 +233,9 @@ function tablaCompetidores(competidores){
    "<td class='table-column'>"+ classCompetidor.getGal()+"</td>"
    +"</tr>";
    arrayRows.push(row);
-   console.log()
+  //  console.log()
  })
-  console.log(arrayRows)
+  // console.log(arrayRows)
   table.innerHTML = arrayRows
 }
 
@@ -299,7 +299,7 @@ function darCompetidores(competidores) {
   let tarjetas = document.getElementById("tarjetas");
   let arrayTarjetas = new Array();
   competidores.forEach(competidor => {
-    console.log(competidor)
+    // console.log(competidor)
     //se crea una instancia de la clase competidor
     let classCompetidor = new Competidor(competidor);
     let tarjeta = darPerfil(classCompetidor);
