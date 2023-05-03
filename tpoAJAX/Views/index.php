@@ -34,7 +34,7 @@
                 <input type="text" class="form-control ms-2" id="filtro-busqueda" name="filtro-busqueda" />
             </div>
             <div class="col-sm-6">
-                <button type="submit" class="btn ms-2" id="boton-select">Go</button>
+                <button type="submit" class="btn ms-2" id="boton-select">Buscar</button>
             </div>
 
         </div>
