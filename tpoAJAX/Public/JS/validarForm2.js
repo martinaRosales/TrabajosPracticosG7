@@ -49,7 +49,7 @@ const paisesPermitidos = [
   { "paisPermitido": "uruguay" }
 ]
 
-$(function () {
+/* $(function () {
   let paisesPermitidos = [
     "Rusia",
     "Ucrania",
@@ -70,7 +70,7 @@ $(function () {
   $("#pais").autocomplete({
     source: paisesPermitidos
   });
-});
+}); */
 
 //funcion que comprueb que el campo no esté vacío
 function validarCampo(valor, campo) {

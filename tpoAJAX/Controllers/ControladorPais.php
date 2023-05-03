@@ -25,6 +25,13 @@ class ControladorPais
         ]);
     }
 
+    /* public static function mostrarTabla()
+    {
+        $pais = Pais::all();
+        header('Content-Type: application/json');
+        echo json_encode($pais);
+    } */
+
     public static function crear(Router $router)
     {
         $pais = new Pais;
@@ -58,24 +65,19 @@ class ControladorPais
         $router->render('actualizar');
     }
 
-    
-    public static function arrPaises() {
-        $pais = []; 
-        $pais = Pais::all(); //devuelve todos los elementos de la tabla en forma de arreglo 
-        $i = 0 ;
 
-        while ($i < count($pais) ){
+    /*  public static function arrPaises()
+    {
+        $pais = [];
+        $pais = Pais::all(); //devuelve todos los elementos de la tabla en forma de arreglo 
+        $i = 0;
+
+        while ($i < count($pais)) {
             $paises[] = $pais['paisnombre'];
             $i++;
         }
         // devolver los datos de los nombres de paises en formato JSON
-        return 
-        json_encode($paises);
-        
-        
-    }
-
-   
+        return
+            json_encode($paises);
+    } */
 }
-
-header('Content-Type: application/json');

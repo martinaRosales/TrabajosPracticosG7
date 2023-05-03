@@ -4,6 +4,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Model\Competidor;
+use Model\Pais;
 
 class ControladorCompetidor
 {
@@ -27,6 +28,8 @@ class ControladorCompetidor
 
     public static function crear(Router $router)
     {
+        $pais = new Pais();
+        $paises = $pais::all();
         $competidor = new Competidor;
         $errores = Competidor::getErrores();
 
@@ -48,6 +51,7 @@ class ControladorCompetidor
         }
 
         $router->render('competidor/crear', [
+            'paises' => $paises,
             'errores' => $errores,
             'competidor' => $competidor
         ]);
