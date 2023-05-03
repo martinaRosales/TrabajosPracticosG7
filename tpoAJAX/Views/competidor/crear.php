@@ -116,8 +116,8 @@
             </div>
           </div>
         </div>
-        <button class="boton" id="anterior" disabled>Anterior</button>
-        <button class="boton" id="siguiente">Siguiente</button>
+        <button class="boton btn btn-secondary" id="anterior" disabled>Anterior</button>
+        <button class="boton btn btn-secondary" id="siguiente">Siguiente</button>
         <button id='enviarBtn' type="submit" class="btn btn-success" style="display: none">
           Enviar
         </button>

@@ -10,9 +10,6 @@ import {
     validarNombre, 
     validarPais,
 } from './validarForm2.js'
-import '../../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js'
-import'./competidor.js'
-import './cambioTema.js'
 
 export {
     validarApellido, 
@@ -27,5 +24,25 @@ export {
     validarPais 
 } from './validarForm2.js'
 
- //exportar el menu
-import './menu.js';
+
+import '../../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js'
+import './cambioTema.js'
+import './menu.js'
+import './barraProgreso.js'
+import './timer.js'
+import './arrayCompetidores.js'
+import './competidor.js'
+
+// import{Competidor} from './competidor.js'
+// export {Competidor} from './competidor.js'
+
+//  import { 
+//     tablaCompetidores,
+//      darCompetidores
+//  } from './arrayCompetidores.js'
+
+//  export{
+//      tablaCompetidores,
+//      darCompetidores
+//  } from './arrayCompetidores.js'
+

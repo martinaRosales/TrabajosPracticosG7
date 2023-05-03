@@ -100,4 +100,6 @@ class ControladorCompetidor
             // $this->modelo->agregarCompetidor($legajo, $apellido, $nombre, $du, $fechaNacimiento, $pais, $graduacion, $clasificacionGeneral, $email, $genero);
         }
     } */
+
+    
 }

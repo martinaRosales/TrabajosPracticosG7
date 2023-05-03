@@ -1,4 +1,4 @@
-
+// export{Competidor}
 class Competidor{
     constructor(objeto){
         this.gal = objeto.gal;

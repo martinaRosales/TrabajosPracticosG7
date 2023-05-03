@@ -1,3 +1,4 @@
+// import {Competidor} from './competidor.js'
 //se crea el array competidores
 let arrayCompetidores = new Array()
 arrayCompetidores[0] =
@@ -295,9 +296,10 @@ window.addEventListener('load', function () {
 
 //Se crea una función que crea intancias de la clase competidor llama al método que retorna una tarjeta html en string
 function darCompetidores(competidores) {
-  tarjetas = document.getElementById("tarjetas");
+  let tarjetas = document.getElementById("tarjetas");
   let arrayTarjetas = new Array();
   competidores.forEach(competidor => {
+    // console.log(competidor)
     //se crea una instancia de la clase competidor
     let classCompetidor = new Competidor(competidor);
     let tarjeta = darPerfil(classCompetidor);
@@ -308,4 +310,4 @@ function darCompetidores(competidores) {
 
 }
 
-
+// export {darCompetidores, tablaCompetidores}

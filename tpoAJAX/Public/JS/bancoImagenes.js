@@ -1,4 +1,4 @@
-const seccion6 = document.getElementById('seccion6');
+const seccion6 = document.getElementById('seccion-seis');
 
 fetch(' https://jsonplaceholder.typicode.com/photos')
     .then(response => response.json())
