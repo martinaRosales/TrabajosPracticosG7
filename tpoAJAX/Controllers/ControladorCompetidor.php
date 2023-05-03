@@ -48,6 +48,14 @@ class ControladorCompetidor
         ]);
     }
 
+    public static function mostrarCompetidores()
+    {
+        $competidor = Competidor::all();
+        header('Content-Type: application/json');
+        echo json_encode($competidor);
+    }
+
+
     public static function crear(Router $router)
     {
         $pais = new Pais();
@@ -100,6 +108,4 @@ class ControladorCompetidor
             // $this->modelo->agregarCompetidor($legajo, $apellido, $nombre, $du, $fechaNacimiento, $pais, $graduacion, $clasificacionGeneral, $email, $genero);
         }
     } */
-
-    
 }

@@ -198,7 +198,13 @@ arrayCompetidores[14] =
   genero: "femenino"
 };
 
-
+fetch('/competidor/tabla')
+  .then(response => response.json())
+  .then(data => {
+    // aquí puedes hacer lo que quieras con los datos obtenidos
+    console.log(data);
+  })
+  .catch(error => console.error(error));
 
 //Se guarda el array en un localStorage
 localStorage.setItem('competidores', JSON.stringify(arrayCompetidores));
