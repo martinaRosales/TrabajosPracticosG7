@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,9 +101,6 @@
         </div>
     </footer>
 
-    <!-- <script src="../Public/JS/barraProgreso.js"></script>
-    <script src="../Public/JS/arrayCompetidores.js"></script>
-    <script src="../Public/JS/competidor.js"></script> -->
     <script type="module" src="/JS/index_DOM.js"></script>
 </body>
 

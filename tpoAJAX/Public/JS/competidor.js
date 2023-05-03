@@ -1,5 +1,6 @@
-
+export{Competidor}
 class Competidor{
+
     constructor(objeto){
         this.gal = objeto.gal;
         this.apellido = objeto.apellido;

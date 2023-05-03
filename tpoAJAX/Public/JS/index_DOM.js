@@ -24,8 +24,19 @@ export {
     validarPais 
 } from './validarForm2.js'
 
+import { 
+    tablaCompetidores,
+     darCompetidores
+ } from './arrayCompetidores.js'
+
+ export{
+    tablaCompetidores,
+     darCompetidores
+ } from './arrayCompetidores.js'
+
 import '/bootstrap-5.0.2-dist/js/bootstrap.min.js'
-import'./competidor.js'
+import{Competidor} from './competidor.js'
+export {Competidor} from './competidor.js'
 import './cambioTema.js'
 import './arrayCompetidores.js'
 import './bancoImagenes.js'
