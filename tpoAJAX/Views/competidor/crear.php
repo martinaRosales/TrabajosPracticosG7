@@ -136,7 +136,7 @@
           Enviar
         </button>
       </form>
-      <!-- <div
+      <div
           id="envio"
           class="alert alert-danger mt-3"
           style="display: none"
@@ -144,7 +144,7 @@
         ></div>
       </div>
                 <button type="submit" class="btn text-light">Enviar</button>
-            </form> -->
+            </form>
       <div id="envio" class="alert alert-danger mt-3" style="display:none;" role="alert"></div>
     </div>
 
