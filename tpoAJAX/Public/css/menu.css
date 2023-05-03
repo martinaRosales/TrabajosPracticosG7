@@ -1,0 +1,30 @@
+/*menu*/
+@media screen and (max-width: 576px) {
+  #menu-grande {
+        display: none;
+    }
+    #navbarToggleExternalContent2{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      height: auto;
+      z-index: 1;
+      
+    }
+
+  } 
+
+ #menu-chico{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+
+ }
+
+ #menu-chico button{
+  background-color: #bbb;
+  
+ }
+ 
+ 

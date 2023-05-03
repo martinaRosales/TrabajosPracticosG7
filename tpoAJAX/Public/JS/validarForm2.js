@@ -437,6 +437,7 @@ function agregarCompetidor() {
     localStorage.setItem('competidores', JSON.stringify(competidores));
     //se llama a la funcion que imprime competidores para actualizar la lista
     darCompetidores(competidores)
+    tablaCompetidores(competidores)
   })
 
 }
@@ -448,6 +449,9 @@ form.addEventListener("submit", (e) => {
     alert("Formulario enviado exitosamente");
     form.reset();
 
+    
+
+
     //seleccionar todos los input y limpiar los bordes 
     const inputs = form.querySelectorAll('input');
     for (let i = 0; i < inputs.length; i++) {
@@ -456,29 +460,3 @@ form.addEventListener("submit", (e) => {
     }
   }
 }); */
-
-
-//peticion xml para la devolucion de los nombres de paises de la bd que es entregada en formato json
-/* const xhr = new XMLHttpRequest()
-  xhr.addEventListener("readystatechange", (e) => {
-    if (xhr.readyState !== 4) return;
-    console.log(xhr);
-    if (xhr.status >= 200 && xhr.status < 300) {
-        console.log('exito');
-        console.log( xhr.setRequestHeader("Content-type", "application/json"));
-        // console.log(xhr.responseText);
-        //traer la lista de los nombres de paises 
-        // let json = JSON.stringify(xhr.response);
-        // console.log(json);
-        // json.forEach((el) => {
-        //     console.log(el)
-        // }); 
-       
-    } else {
-        console.log("error");
-    }
-}); */
-
-/* xhr.open('GET', '../../Controllers/ControladorPais.php',true);
-xhr.send(); */
-
