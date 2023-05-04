@@ -12,44 +12,207 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <div class="containerHeader">
-        <div class="logo">
-          <img src="tu-logo.png" alt="Logo de tu sitio web" />
-        </div>
-        <div class="links">
-          <a href="index.html">Inicio</a>
-          <a href="timer.html">Timer</a>
-          <a href="#">Enlace 3</a>
-        </div>
-      </div>
-    </header>
     <div class="row">
-      <div class="timerContainer card col-sm-10 mx-auto m-4">
-        <h5 class="card-header">Featured</h5>
+      <div class="timerContainer card col col-sm-10 mx-auto m-4">
+        <h5 class="card-header">Cronometro</h5>
         <div class="card-body">   
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-          <p id="timer"></p>
-          <h5 class="card-title"></h5>
-          <a id="btnIniciar" href="#" class="btn btn-primary">Iniciar</a>
-          <a id="btnDetener" href="#" class="btn btn-danger">Detener</a>
+          <p id="timer" class="ms-3 fs-3"> 90seg </p>
+          
+          <a id="btnIniciar" href="#" class="btn btn-primary ms-2">Iniciar</a>
+          <a id="btnDetener" href="#" class="btn btn-danger disabled">Detener</a>
+          <p id="contador" class="ms-2 fs-4" ></p>
         </div>
       </div>
     </div>
-    <footer class="page-footer font-small position-relative bottom-0">
-        <div class="containerFooter footer-copyright">
-          <!-- Copyright -->
-          <div class="row text-center py-3">
-            <p>Martina Rosales Jeronimo Rojo Victoria Perez</p>
-          </div>
-          <div class="row text-center py-3" id="copyright">
-            <p>Grupo 7 :) Copyright</p>
-          </div>
-        </div>
-      </footer>
-    <script src="../Assets/JS/timer.js"></script>
+    <script>
+// Obtenemos los elementos desde el HTML
+let timerElement = document.getElementById("timer");
+let timerRestanteElement = document.querySelector('.card-title');
+let btnIniciar = document.getElementById("btnIniciar");
+let btnDetener = document.getElementById("btnDetener");
+let contador = document.getElementById("contador");
+
+// Seteamos el timer con una duracion de 90 segundos
+let tiempo = 90;
+let temporizador;
+let tiempoTotal = 0;
+
+const actualizarContador = () => {  
+  tiempo--;
+ 
+  if (tiempo <= 0) {
+    if (tiempo === 0) {
+
+      timerElement.style.color = 'red';
+      timerElement.innerHTML = `${Math.abs(tiempo)} seg de OVERTIME`;
+     
+    } 
+    else {
+      timerElement.innerHTML = `${Math.abs(tiempo)} seg de OVERTIME`;
+    
+    }
+  } else {
+    timerElement.innerHTML = `${tiempo}` + 'seg';
+  
+
+  }
+    tiempoTotal = 90 - tiempo;
+
+};
+
+btnIniciar.addEventListener('click', () => {
+  temporizador = setInterval(actualizarContador, 1000);
+  btnIniciar.classList.add('disabled')
+  btnDetener.classList.remove('disabled')
+  
+});
+
+
+btnDetener.addEventListener('click', () => {
+  clearInterval(temporizador);
+  btnDetener.classList.add('disabled')
+  btnIniciar.classList.remove('disabled')
+  contador.innerHTML = `Tiempo Total: ${tiempoTotal} seg`;
+ 
+});
+
+
+
+
+// const minutos = Math.floor(tiempo / 60);
+//     const segundos = tiempo % 60;
+ // timerElement.innerHTML = `${minutos}:${segundos < 10 ? '0' : ''}${segundos}`
+
+// let tiempoRestante = duration; // variable ue almacena el tiempo restante
+// let tiempoTranscurrido = 0;
+// let tiempoTotal = duration;
+// let temporizadorFinalizado = false;
+
+// function comenzarTimer() {
+//     // Comienza el timer
+//     let timer = setInterval(function () {
+
+//         // Convert the remaining time to minutes and seconds
+//         let minutes = Math.floor(tiempoRestante / 60);
+//         let seconds = tiempoRestante % 60;
+
+//         // Chequea si el timer llega a 0
+//         if (tiempoRestante <= 0 && !temporizadorFinalizado) {
+//             temporizadorFinalizado = true;
+//             timerElement.classList.add('overtime');
+//         }
+
+//         /// Mostramos en el elemento del temporizador el tiempo restante o el tiempo transcurrido
+//         if (!temporizadorFinalizado) {
+//             timerElement.innerHTML = "Time remaining: " + minutes + " min " + seconds + " sec";
+//         } else {
+//             let overtimeSeconds = tiempoTranscurrido;
+//             timerElement.innerHTML = "OVERTIME: " + overtimeSeconds + " sec";
+//         }
+
+//         // Decrement the remaining time or increment the elapsed time by 1 second
+//         if (!temporizadorFinalizado) {
+//             tiempoRestante--;
+//         } else {
+//             tiempoTranscurrido++;
+//         }
+
+//     }, 1000);
+// }
+
+// btnIniciar.addEventListener('click', comenzarTimer);
+
+// // Agrega el evento de escucha (listener) para el botón "Detener"
+// btnDetener.addEventListener("click", function () {
+//     clearInterval(timer); //detenemos el timer
+//     timerRestanteElement.innerHTML = "Tiempo transcurrido: " + tiempoTranscurrido + " seg";
+// });
+
+    </script>
   </body>
 </html>
+<!-- 
+<section class="p-auto text-center">
+  <div class="row py-5" id="#clock">
+       <div class="col pt-5"> 
+           <div class="container card text-bg-dark align-items-center">
+               <div class="col-sm-12 p-2 d-md-block">
+                   <div class="wrapper">
+                       <div class="time bg-cronometro">
+                           <p id="inicio">
+                           <span id="contador" class="segundos">5</span>
+                           <span class="textoSegundos"> Segundos</span>
+                           </p>
+                           <p id="pasado" class="d-none text-danger textoContador">
+                           <span id="overtime">0</span> Segundos OVERTIME</p>
+                           <p id="final" class="d-none text-success textoContador">
+                           <span id="total"></span> Segundos Totales</p>
+                       </div>
+                   </div>
+                   <div class="buttonTime">
+                       <button id="startBtn" class="btn btn-outline-success btn-lg me-2" onclick="iniciaCronometro()">Inicia</button>
+                       <button id="stopBtn" class="btn btn-outline-danger btn-lg me-2" onclick="terminaCronometro()">Termina</button>
+                   </div>
+               </div>
+           </div>
+       </div> 
+  </div>
+</section>
+<script>
+  let contadorPositivo, contadorOver; // CUENTAS REGRESIVAS
+let totalSegundos = 0; // SEGUNDOS TOTALES
+let contador = document.getElementById("contador"); // NUMERO CUENTA REGRESIVA INICIAL
+let overtime = document.getElementById("overtime"); // NÚMERO CUENTA REGRESIVA OVERTIME
+let totalSegundosSpan = document.getElementById("total"); // NÚMERO DE SEGUNDOS TOTALES
+let startBtn = document.getElementById("startBtn"); // BOTÓN INICAR CUENTA REGRESIVA
+let stopBtn = document.getElementById("stopBtn"); // BOTÓN FINALIZAR CUENTA REGRESIVA
+let inicio = document.getElementById("inicio"); // SPAN TEXTO CUENTA REGRESIVA INICIAL
+let pasado = document.getElementById("pasado"); // SPAN TEXTO CUENTA REGRESIVA OVERTIME
+let final = document.getElementById("final"); // SPAN TEXTO SEGUNDOS TOTALES
+function iniciaCronometro() {
+    clearInterval(contadorPositivo);
+    clearInterval(contadorOver);
+    //SE REINICIAN LOS SEGUNDOS contados, overtime y totales
+    contador.innerHTML = 5; 
+    overtime.innerHTML = 0; 
+    totalSegundos = 0;
+    //OCULTAMOS LOS SPAN overtime y totales, mostrando solamente los iniciales
+    final.classList.add("d-none");
+    inicio.classList.remove("d-none");
+    pasado.classList.add("d-none");
+    let segundos = parseInt(contador.innerHTML);
+    contador.innerHTML = segundos;
+    contadorPositivo = setInterval(function () {
+        segundos--;
+        totalSegundos++;
+        contador.innerHTML = segundos;
+        if (segundos == 0) {
+            inicio.classList.add("d-none"); // OCULTAR SPAN DE CUENTA REGRESIVA INICIAL
+            pasado.classList.remove("d-none"); // MOSTRAR SPAN DE CUENTA REGRESIVA OVERTIME
+            clearInterval(contadorPositivo);
+            overtime.innerHTML = 0;
+            let count = 0;
+            contadorOver = setInterval(function () {
+                count++;
+                totalSegundos++;
+                overtime.innerHTML = count;
+            }, 1000);
+
+            totalSegundosSpan.innerHTML = totalSegundos;
+            pasado.classList.remove("d-none");
+        }
+    }, 1000);
+
+    startBtn.disabled = true;
+    stopBtn.disabled = false;
+}
+
+function terminaCronometro() {
+    clearInterval(contadorPositivo);
+    clearInterval(contadorOver);
+    totalSegundosSpan.innerHTML = totalSegundos;
+    final.classList.remove("d-none");
+    stopBtn.disabled = true;
+    startBtn.disabled = false;
+}
+</script> -->

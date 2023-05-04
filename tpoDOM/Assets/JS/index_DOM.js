@@ -29,7 +29,7 @@ import '../../Public/bootstrap-5.0.2-dist/js/bootstrap.min.js'
 import './cambioTema.js'
 import './menu.js'
 import './barraProgreso.js'
-import './timer.js'
+import './timer2.js'
 import './arrayCompetidores.js'
 import './competidor.js'
 
